@@ -3,3 +3,5 @@
 .idea/
 GoogleModel/
 data for input/
+Word2Vec.pyc
+model/

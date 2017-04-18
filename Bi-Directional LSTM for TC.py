@@ -15,12 +15,12 @@ def grabVecs(filename):
     return pickle.load(fr)
 
 
-x_train = grabVecs('./dataset.txt')
-y_train = grabVecs('./label.txt')
+x_train = grabVecs('./data for input/dataset.pkl')
+y_train = grabVecs('./data for input/label.pkl')
 
 # Parameters
-learning_rate = 0.004
-training_iters = 10
+learning_rate = 0.001
+training_iters = 40
 batch_size = 256
 display_step = 10
 
@@ -29,7 +29,7 @@ n_input = 300  # MNIST data input (img shape: 28*28)
 n_steps = 49  # timesteps
 n_hidden = 300  # hidden layer num of features
 n_classes = 2  # MNIST total classes (0-9 digits)
-total = 2162
+total = len(x_train)
 
 list = []
 for i in range(total):
@@ -117,18 +117,13 @@ def BiRNN(_X, _weights, _biases, _batch_size, _seq_len):
                                                                                                       tf.float32),
                                                              sequence_length=_seq_len)
     out1 = tf.concat([i for i in outputs], 1)
-    # out2 = tf.concat(1, [j for j in [i[1] for i in outputs]])
     o1 = tf.matmul(out1, _weights['fc1']) + _biases['fc1']
-    h_fc1_drop = tf.nn.dropout(o1, keep_prob)
-    # dropout
-    # # Linear activation
-    # o = outputs[-1][0] * _weights['gather1'] + outputs[-1][1] * (1 - _weights['gather1'])
-    # Get inner loop last output
-    return tf.nn.sigmoid(tf.matmul(h_fc1_drop, _weights['out']) + _biases['out']), h_fc1_drop
+    h_drop = tf.nn.dropout(o1, keep_prob)
+    return tf.matmul(h_drop, _weights['out']) + _biases['out']
 
 
 keep_prob = tf.placeholder(tf.float32)
-pred, h_fc1_drop = BiRNN(x, weights, biases, batch_size, n_steps)
+pred = BiRNN(x, weights, biases, batch_size, n_steps)
 
 # Define loss and optimizer
 cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=y, logits=pred))  # Softmax loss
@@ -160,7 +155,8 @@ accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
 init = tf.global_variables_initializer()
 
 # Launch the graph
-with tf.Session(config=tf.ConfigProto(log_device_placement=True)) as sess:
+# with tf.Session(config=tf.ConfigProto(log_device_placement=True)) as sess:
+with tf.Session() as sess:
     sess.run(init)
     for i in range(training_iters):
         # 持续迭代
@@ -196,5 +192,5 @@ with tf.Session(config=tf.ConfigProto(log_device_placement=True)) as sess:
     print("Optimization Finished!")
     # Calculate accuracy for 128 mnist test images
     saver = tf.train.Saver()
-    save_path = saver.save(sess, "./test1/model.ckpt")
+    save_path = saver.save(sess, "./model/model.ckpt")
     print("Model saved in file: %s" % save_path)
