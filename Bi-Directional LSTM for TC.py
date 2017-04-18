@@ -16,7 +16,7 @@ def train(model, data, sess, training_iters, display_step):
                                                                                            model.y: batch_ys,
                                                                                            model.keep_prob: 1.0})
             train_writer.add_summary(summary, step)
-            print("Iter " + str(step) + ", Step " + str(step) + ", Minibatch Loss= " + "{:.6f}".format(
+            print("Iter " + str(step) + ", Minibatch Loss= " + "{:.6f}".format(
                 loss) + ", Training Accuracy= " + "{:.5f}".format(acc))
         step += 1
     print("Optimization Finished!")
