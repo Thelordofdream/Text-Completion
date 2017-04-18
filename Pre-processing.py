@@ -13,7 +13,7 @@ def storeVecs(input, filename):
     pickle.dump(input, fw)
     fw.close()
 
-goole_vecs = grabVecs('./data for input/word_vecs.txt')
+goole_vecs = grabVecs('./data for input/word_vecs.pkl')
 dataset = []
 for a in goole_vecs:
     sentence = np.zeros((49, 300))
@@ -21,7 +21,7 @@ for a in goole_vecs:
     start = int((49 - m) / 2)
     sentence[start:start + m] = a
     dataset.append(sentence)
-storeVecs(dataset, './data for input/dataset.txt')
+storeVecs(dataset, './data for input/dataset.pkl')
 
 connection = pymysql.connect(user='root', password='root', database='GRE')
 cursor = connection.cursor()
@@ -32,4 +32,4 @@ for each in cursor.fetchall():
     single = [0, 0]
     single[each[2]] = 1
     label.append(single)
-storeVecs(label, './data for input/label.txt')
+storeVecs(label, './data for input/label.pkl')

@@ -20,10 +20,14 @@ def cleanText(corpus):
 def buildWordVector(model_w2v, text, size):
     sen = []
     vec = np.zeros(size).reshape((1, size))
+    num = 0
     for word in text:
         try:
             vec = model_w2v[word].reshape((1, size))
             sen.extend(vec)
+            num += 1
+            if num % 100 == 0:
+                print "finished %d sentences" % num
         except:
             continue
     return sen
