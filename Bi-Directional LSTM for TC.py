@@ -35,7 +35,7 @@ def save(sess):
 
 
 if __name__ == "__main__":
-    training_iters = 40
+    training_iters = 3200
     display_step = 10
 
     data = model.data(path="./data for input/")

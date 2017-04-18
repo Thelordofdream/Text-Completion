@@ -66,7 +66,6 @@ class Bd_LSTM_layer(nerual_network):
 
         with tf.variable_scope("optimizer"):
             self.optimizer = tf.train.AdamOptimizer(learning_rate=self.learning_rate).minimize(self.cross_entropy)
-            # Evaluate model
             correct_pred = tf.equal(tf.argmax(self.output, 1), tf.argmax(self.y, 1))
             self.accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
         tf.summary.scalar('accuracy', self.accuracy)
