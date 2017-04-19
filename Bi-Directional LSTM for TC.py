@@ -6,7 +6,7 @@ import model
 def train(model, data, sess, training_iters, display_step):
     train_writer = tf.summary.FileWriter('./train', sess.graph)
     sess.run(init)
-    step = 1
+    step = 0
     while step < training_iters:
         batch_xs, batch_ys = data.next_batch()
         batch_xs = batch_xs.reshape((model.batch_size, model.steps, model.inputs))
@@ -19,8 +19,7 @@ def train(model, data, sess, training_iters, display_step):
             train_writer.add_summary(summary, step)
             print("Iter " + str(step) + ", Minibatch Loss= " + "{:.6f}".format(
                 loss) + ", Training Accuracy= " + "{:.5f}".format(acc))
-        if step % 10 * display_step == 0:
-            test(my_network, data, sess)
+            test(model, data, sess)
         step += 1
     print("Optimization Finished!")
 
