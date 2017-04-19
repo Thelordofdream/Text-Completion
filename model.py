@@ -85,33 +85,33 @@ class data(nerual_network):
         _x_train = self.grabVecs(path + "dataset.pkl")
         _y_train = self.grabVecs(path + "label.pkl")
         self.total = len(_x_train)
-        list = []
+        self.rest = 4
+        random_list = []
         for i in range(self.total):
-            list.append(i)
-        np.random.shuffle(list)
+            random_list.append(i)
+        np.random.shuffle(random_list)
         self.x_train = []
         self.y_train = []
         self.x_test = []
         self.y_test = []
-        train = list[:self.total - self.batch_size]
-        test = list[self.total - self.batch_size:]
+        train = random_list[:self.total - self.batch_size]
+        test = random_list[self.total - self.batch_size:]
         for i in test:
             self.x_test.append(_x_train[i])
             self.y_test.append(_y_train[i])
 
-        for i in range(4):
+        for i in range(self.rest):
             np.random.shuffle(train)
             for i in train:
                 self.x_train.append(_x_train[i])
                 self.y_train.append(_y_train[i])
-        self.total *= 4
+        self.total = len(self.x_train)
         self.start = 0
+        self.max = self.total // self.batch_size
 
     def next_batch(self):
-        if (self.start + 1) * self.batch_size >= self.total:
-            self.start = 0
-        batch_x = np.array(self.x_train[self.start * self.batch_size: (self.start + 1) * self.batch_size])
-        batch_y = np.array(self.y_train[self.start * self.batch_size: (self.start + 1) * self.batch_size])
+        batch_x = np.array(self.x_train[(self.start % self.max) * self.batch_size: (self.start % self.max + 1) * self.batch_size])
+        batch_y = np.array(self.y_train[(self.start % self.max) * self.batch_size: (self.start % self.max + 1) * self.batch_size])
         self.start += 1
         return batch_x, batch_y
 
