@@ -42,25 +42,23 @@ class Bd_LSTM_layer(nerual_network):
                                                                          self.batch_size, tf.float32),
                                                                      sequence_length=_seq_len)
 
-        with tf.variable_scope("splice_layer"):
+        with tf.variable_scope("dense_layer"):
             time_seq = tf.concat([i for i in outputs], 1)
-
-        with tf.variable_scope("hidden_layer1"):
             hidden1_w = tf.Variable(tf.random_normal([self.steps * 2 * self.hidden, self.hidden]), name='h1_w')
             hidden1_b = tf.Variable(tf.random_normal([self.hidden]), name='h1_b'),
-            h1 = tf.matmul(time_seq, hidden1_w) + hidden1_b
-
-        with tf.variable_scope("hidden_layer2"):
-            hidden2_w = tf.Variable(tf.random_normal([self.hidden, self.classes]), name='h2_w')
-            hidden2_b = tf.Variable(tf.random_normal([self.classes]), name='h2_b')
-            h2 = tf.matmul(h1, hidden2_w) + hidden2_b
+            h1 = tf.nn.sigmoid(tf.matmul(time_seq, hidden1_w) + hidden1_b)
 
         with tf.variable_scope("dropout"):
             self.keep_prob = tf.placeholder(tf.float32, name="keep_prob")
-            self.output = tf.nn.dropout(h2, self.keep_prob)
+            h_drop= tf.nn.dropout(h1, self.keep_prob)
 
+        with tf.variable_scope("readout_layer"):
+            hidden2_w = tf.Variable(tf.random_normal([self.hidden, self.classes]), name='h2_w')
+            hidden2_b = tf.Variable(tf.random_normal([self.classes]), name='h2_b')
+            self.output = tf.matmul(h_drop, hidden2_w) + hidden2_b
+
+        self.y = tf.placeholder("float", [None, self.classes], name="y")
         with tf.variable_scope("loss"):
-            self.y = tf.placeholder("float", [None, self.classes], name="y")
             self.cross_entropy= tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=self.y, logits=self.output))
         tf.summary.scalar('cross_entropy', self.cross_entropy)
 
