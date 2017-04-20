@@ -41,8 +41,8 @@ if __name__ == "__main__":
     training_iters = 3200
     display_step = 10
 
-    data = model2.data(path="./data for input0/")
-    my_network = model2.Bd_LSTM_layer(name="TC")
+    data = model1.data(path="./data for input0/")
+    my_network = model1.Bd_LSTM_layer(name="TC")
 
     init = tf.global_variables_initializer()
     with tf.Session() as sess:

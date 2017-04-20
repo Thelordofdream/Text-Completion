@@ -46,7 +46,7 @@ class Bd_LSTM_layer(nerual_network):
             time_seq = tf.concat([i for i in outputs], 1)
             hidden1_w = tf.Variable(tf.random_normal([self.steps * 2 * self.hidden, self.hidden]), name='h1_w')
             hidden1_b = tf.Variable(tf.random_normal([self.hidden]), name='h1_b'),
-            h1 = tf.nn.sigmoid(tf.matmul(time_seq, hidden1_w) + hidden1_b)
+            h1 = tf.matmul(time_seq, hidden1_w) + hidden1_b
 
         with tf.variable_scope("dropout"):
             self.keep_prob = tf.placeholder(tf.float32, name="keep_prob")
