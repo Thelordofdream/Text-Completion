@@ -7,10 +7,10 @@ import numpy as np
 
 def predict(model, data, sess):
     saver = tf.train.Saver()
+    saver.restore(sess, "./model/model.ckpt")
     results = []
     for batch_xs in data:
         batch_xs = batch_xs.reshape((model.batch_size, model.steps, model.inputs))
-        saver.restore(sess, "./model/model.ckpt")
         results.append(sess.run(model.output, feed_dict={model.x: batch_xs, model.keep_prob: 1.0}))
     return results
 
@@ -18,7 +18,7 @@ def predict(model, data, sess):
 def generate(q1, q2, answer, model_google):
     sentences = []
     for i in answer:
-        sentences.append(q1 + answer[i] + q2)
+        sentences.append(q1 + " " + answer[i] + " " + q2)
     sentences = Word2Vec.cleanText(sentences)
     print sentences
     n_dim = 300
