@@ -1,6 +1,6 @@
 # coding=utf-8
 import tensorflow as tf
-import model
+import model1
 
 
 def train(model, data, sess, training_iters, display_step):
@@ -41,8 +41,8 @@ if __name__ == "__main__":
     training_iters = 3200
     display_step = 10
 
-    data = model.data(path="./data for input0/")
-    my_network = model.Bd_LSTM_layer(name="TC")
+    data = model2.data(path="./data for input0/")
+    my_network = model2.Bd_LSTM_layer(name="TC")
 
     init = tf.global_variables_initializer()
     with tf.Session() as sess:
