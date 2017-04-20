@@ -104,7 +104,7 @@ class data(nerual_network):
                 self.x_train.append(_x_train[i])
                 self.y_train.append(_y_train[i])
 
-        for i in range(self.rest):
+        for i in range(self.rest // 2):
             for i in random_list:
                 self.x_train.append(_x_train[i])
                 self.y_train.append(_y_train[i])
