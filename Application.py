@@ -34,7 +34,6 @@ def generate(q1, q2, answer, model_google):
     return dataset
 
 
-
 if __name__ == "__main__":
     model_google = gensim.models.KeyedVectors.load_word2vec_format('./GoogleModel/GoogleNews-vectors-negative300.bin', binary=True)
     question1 = "It is a paradox of the Victorians that they were both"
@@ -48,8 +47,6 @@ if __name__ == "__main__":
 
     data = generate(question1, question2, answer, model_google)
     my_network = model1.Bd_LSTM_layer(name="TC")
-    for i in data:
-        print i[:20]
     init = tf.global_variables_initializer()
     with tf.Session() as sess:
         results = predict(my_network, data, sess)
