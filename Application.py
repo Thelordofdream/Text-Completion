@@ -82,7 +82,7 @@ if __name__ == "__main__":
                 distance[i] /= maximum
                 if distance[i] == 1:
                     elapsed = (time.clock() - start)
-                    print "Answer: " + options[i] + " Time used: " + str(elapsed)
+                    print "Answer: " + options[i] + " Time used: " + str(elapsed) + "s"
                     if options[i] == right_answer:
                         count += 1
             print distance
