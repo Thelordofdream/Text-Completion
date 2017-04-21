@@ -49,6 +49,7 @@ def generate(q1, q2, answer, model_google, options):
 if __name__ == "__main__":
     connection = pymysql.connect(user='root', password='root', database='GRE')
     cursor = connection.cursor()
+    print "Loading models......"
     model_google = gensim.models.KeyedVectors.load_word2vec_format('./GoogleModel/GoogleNews-vectors-negative300.bin', binary=True)
     print "Loading Google Model Finished."
     my_network = model1.Bd_LSTM_layer(name="TC")
