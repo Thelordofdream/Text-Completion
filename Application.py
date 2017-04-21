@@ -4,7 +4,7 @@ import gensim
 import Word2Vec
 import numpy as np
 import pymysql
-
+import time
 
 def predict(model, data, sess):
     results = []
@@ -59,7 +59,8 @@ if __name__ == "__main__":
         saver.restore(sess, "./model/model.ckpt")
         print "Loading LSTM Model and opening Tensorflow Finished."
         count = 0
-        for No in range(100):
+        number = 1
+        for No in range(number):
             print "========== No: " + str(No + 1) + " =========="
             commit = "select * from GREQ1 where No=%d" % (No + 1)
             cursor.execute(commit)
@@ -82,6 +83,7 @@ if __name__ == "__main__":
             for i in options:
                 print i + ". " + answer[i]
 
+            start = time.clock()
             data = generate(question1, question2, answer, model_google, options)
             # data =grabVecs("predict.pkl")
             print "Analysis......"
@@ -93,9 +95,12 @@ if __name__ == "__main__":
             for i in range(5):
                 distance[i] /= maximum
                 if distance[i] == 1:
-                    print "Answer: " + options[i]
+                    elapsed = (time.clock() - start)
+                    print "Answer: " + options[i] + " Time used: " + str(elapsed)
                     if options[i] == right_answer:
                         count += 1
             print distance
             print "Right answer: " + right_answer
-        print "Accuracy: " + str(count/100.0)
+        print count
+        print "Accuracy: " + str(count/float(number))
+        connection.close()
