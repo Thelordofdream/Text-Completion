@@ -6,6 +6,7 @@ import numpy as np
 import pymysql
 import time
 
+
 def predict(model, data, sess):
     results = []
     points = []

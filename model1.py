@@ -4,7 +4,7 @@ import numpy as np
 
 
 class nerual_network(object):
-    def __init__(self, steps=49, inputs=300, hidden=300, batch_size=1, classes=2, learning_rate=0.001):
+    def __init__(self, steps=49, inputs=300, hidden=300, batch_size=256, classes=2, learning_rate=0.001):
         self.steps = steps
         self.inputs = inputs
         self.hidden = hidden
@@ -30,11 +30,13 @@ class Bd_LSTM_layer(nerual_network):
             with tf.variable_scope("Forward_LSTM"):
                 with tf.device("/cpu:0"):
                     lstm_fw_cell = rnn.BasicLSTMCell(self.hidden, forget_bias=0.1, state_is_tuple=True)
-                    lstm_fw_cell = rnn.DropoutWrapper(lstm_fw_cell, input_keep_prob=1.0, output_keep_prob=1.0, seed=None)
+                    lstm_fw_cell = rnn.DropoutWrapper(lstm_fw_cell, input_keep_prob=1.0, output_keep_prob=1.0,
+                                                      seed=None)
             with tf.variable_scope("Backward_LSTM"):
                 with tf.device("/cpu:1"):
                     lstm_bw_cell = rnn.BasicLSTMCell(self.hidden, forget_bias=0., state_is_tuple=True)
-                    lstm_bw_cell = rnn.DropoutWrapper(lstm_bw_cell, input_keep_prob=1.0, output_keep_prob=1.0, seed=None)
+                    lstm_bw_cell = rnn.DropoutWrapper(lstm_bw_cell, input_keep_prob=1.0, output_keep_prob=1.0,
+                                                      seed=None)
             outputs, output1, output2 = rnn.static_bidirectional_rnn(lstm_fw_cell, lstm_bw_cell, input,
                                                                      initial_state_fw=lstm_fw_cell.zero_state(
                                                                          self.batch_size, tf.float32),
@@ -50,7 +52,7 @@ class Bd_LSTM_layer(nerual_network):
 
         with tf.variable_scope("dropout"):
             self.keep_prob = tf.placeholder(tf.float32, name="keep_prob")
-            h_drop= tf.nn.dropout(h1, self.keep_prob)
+            h_drop = tf.nn.dropout(h1, self.keep_prob)
 
         with tf.variable_scope("readout_layer"):
             hidden2_w = tf.Variable(tf.random_normal([self.hidden, self.classes]), name='h2_w')
@@ -59,7 +61,8 @@ class Bd_LSTM_layer(nerual_network):
 
         self.y = tf.placeholder("float", [None, self.classes], name="y")
         with tf.variable_scope("loss"):
-            self.cross_entropy= tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=self.y, logits=self.output))
+            self.cross_entropy = tf.reduce_mean(
+                tf.nn.softmax_cross_entropy_with_logits(labels=self.y, logits=self.output))
         tf.summary.scalar('cross_entropy', self.cross_entropy)
 
         with tf.variable_scope("optimizer"):
@@ -116,8 +119,10 @@ class data(nerual_network):
         self.max0 = self.total0 // self.batch_size
 
     def next_batch(self):
-        batch_x = np.array(self.x_train[(self.start % self.max) * self.batch_size: (self.start % self.max + 1) * self.batch_size])
-        batch_y = np.array(self.y_train[(self.start % self.max) * self.batch_size: (self.start % self.max + 1) * self.batch_size])
+        batch_x = np.array(
+            self.x_train[(self.start % self.max) * self.batch_size: (self.start % self.max + 1) * self.batch_size])
+        batch_y = np.array(
+            self.y_train[(self.start % self.max) * self.batch_size: (self.start % self.max + 1) * self.batch_size])
         self.start += 1
         return batch_x, batch_y
 
@@ -127,8 +132,10 @@ class data(nerual_network):
         return batch_x, batch_y
 
     def next_predict_batch(self):
-        batch_x = np.array(self._x_train[(self.start0 % self.max0) * self.batch_size: (self.start0 % self.max0 + 1) * self.batch_size])
-        batch_y = np.array(self._y_train[(self.start0 % self.max0) * self.batch_size: (self.start0 % self.max0 + 1) * self.batch_size])
+        batch_x = np.array(
+            self._x_train[(self.start0 % self.max0) * self.batch_size: (self.start0 % self.max0 + 1) * self.batch_size])
+        batch_y = np.array(
+            self._y_train[(self.start0 % self.max0) * self.batch_size: (self.start0 % self.max0 + 1) * self.batch_size])
         self.start0 += 1
         return batch_x, batch_y
 
