@@ -7,6 +7,7 @@ def grabVecs(filename):
     fr = open(filename)
     return pickle.load(fr)
 
+
 def storeVecs(input, filename):
     import pickle
     fw = open(filename, 'w')

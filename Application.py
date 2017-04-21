@@ -3,27 +3,41 @@ import model1
 import gensim
 import Word2Vec
 import numpy as np
+import pymysql
 
 
 def predict(model, data, sess):
     saver = tf.train.Saver()
     saver.restore(sess, "./model/model.ckpt")
     results = []
+    points = []
     for batch_xs in data:
         batch_xs = batch_xs.reshape((model.batch_size, model.steps, model.inputs))
-        results.append(sess.run(model.output, feed_dict={model.x: batch_xs, model.keep_prob: 1.0}))
-    return results
+        results.append(sess.run(tf.argmax(model.output, 1), feed_dict={model.x: batch_xs, model.keep_prob: 1.0}))
+        points.append((sess.run(model.output, feed_dict={model.x: batch_xs, model.keep_prob: 1.0})))
+    return results, points
 
 
-def generate(q1, q2, answer, model_google):
+def storeVecs(input, filename):
+    import pickle
+    fw = open(filename, 'w')
+    pickle.dump(input, fw)
+    fw.close()
+
+
+def grabVecs(filename):
+    import pickle
+    fr = open(filename)
+    return pickle.load(fr)
+
+
+def generate(q1, q2, answer, model_google, options):
     sentences = []
-    for i in answer:
-        sentences.append(q1 + " " + answer[i] + " " + q2)
+    for i in options:
+        sentences.append(q1 + answer[i] + q2)
     sentences = Word2Vec.cleanText(sentences)
-    print sentences
     n_dim = 300
     vectors = [Word2Vec.buildWordVector(model_google, z, n_dim) for z in sentences]
-    print len(vectors[0])
     dataset = []
     for a in vectors:
         sentence = np.zeros((49, 300))
@@ -35,19 +49,47 @@ def generate(q1, q2, answer, model_google):
 
 
 if __name__ == "__main__":
+    connection = pymysql.connect(user='root', password='root', database='GRE')
+    cursor = connection.cursor()
     model_google = gensim.models.KeyedVectors.load_word2vec_format('./GoogleModel/GoogleNews-vectors-negative300.bin', binary=True)
-    question1 = "It is a paradox of the Victorians that they were both"
-    question2 = "and, through their empire, cosmopolitan."
-    answer = {}
-    answer["A"] = "capricious"
-    answer["B"] = "insular"
-    answer["C"] = "mercenary"
-    answer["D"] = "idealistic"
-    answer["E"] = "intransigent"
+    for No in range(10):
+        print "========== No: " + str(No + 1) + " =========="
+        commit = "select * from GREQ1 where No=%d" % (No + 1)
+        cursor.execute(commit)
+        question = cursor.fetchall()[0]
+        question1 = question[1]
+        question2 = question[2]
+        print "Question: " + question1 + "_____" + question2
+        commit = "select * from GREA1 where No=%d" % (No + 1)
+        cursor.execute(commit)
+        option = cursor.fetchall()[0]
+        answer = {}
+        answer["A"] = option[1]
+        answer["B"] = option[2]
+        answer["C"] = option[3]
+        answer["D"] = option[4]
+        answer["E"] = option[5]
+        right_answer = option[6]
+        options = ["A", "B", "C", "D", "E"]
+        print "Options: "
+        for i in options:
+            print i + ". " + answer[i]
 
-    data = generate(question1, question2, answer, model_google)
-    my_network = model1.Bd_LSTM_layer(name="TC")
-    init = tf.global_variables_initializer()
-    with tf.Session() as sess:
-        results = predict(my_network, data, sess)
-    print results
+        data = generate(question1, question2, answer, model_google, options)
+        # data =grabVecs("predict.pkl")
+        my_network = model1.Bd_LSTM_layer(name="TC")
+        print "Analysis......"
+        init = tf.global_variables_initializer()
+        with tf.Session() as sess:
+            results, points = predict(my_network, data, sess)
+        distance = []
+        for i in range(5):
+            distance.append(points[i][0][1] - points[i][0][0])
+        maximum = max(distance)
+        for i in range(5):
+            distance[i] /= maximum
+            if distance[i] == 1:
+                print "Answer: " + options[i]
+        print distance
+        print "Right answer: " + right_answer
+
