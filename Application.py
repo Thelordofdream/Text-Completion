@@ -16,19 +16,6 @@ def predict(model, data, sess):
     return results, points
 
 
-def storeVecs(input, filename):
-    import pickle
-    fw = open(filename, 'w')
-    pickle.dump(input, fw)
-    fw.close()
-
-
-def grabVecs(filename):
-    import pickle
-    fr = open(filename)
-    return pickle.load(fr)
-
-
 def generate(q1, q2, answer, model_google, options):
     sentences = []
     for i in options:
@@ -85,7 +72,6 @@ if __name__ == "__main__":
 
             start = time.clock()
             data = generate(question1, question2, answer, model_google, options)
-            # data =grabVecs("predict.pkl")
             print "Analysis......"
             results, points = predict(my_network, data, sess)
             distance = []
