@@ -7,8 +7,6 @@ import pymysql
 
 
 def predict(model, data, sess):
-    saver = tf.train.Saver()
-    saver.restore(sess, "./model/model.ckpt")
     results = []
     points = []
     for batch_xs in data:
@@ -52,44 +50,48 @@ if __name__ == "__main__":
     connection = pymysql.connect(user='root', password='root', database='GRE')
     cursor = connection.cursor()
     model_google = gensim.models.KeyedVectors.load_word2vec_format('./GoogleModel/GoogleNews-vectors-negative300.bin', binary=True)
-    for No in range(10):
-        print "========== No: " + str(No + 1) + " =========="
-        commit = "select * from GREQ1 where No=%d" % (No + 1)
-        cursor.execute(commit)
-        question = cursor.fetchall()[0]
-        question1 = question[1]
-        question2 = question[2]
-        print "Question: " + question1 + "_____" + question2
-        commit = "select * from GREA1 where No=%d" % (No + 1)
-        cursor.execute(commit)
-        option = cursor.fetchall()[0]
-        answer = {}
-        answer["A"] = option[1]
-        answer["B"] = option[2]
-        answer["C"] = option[3]
-        answer["D"] = option[4]
-        answer["E"] = option[5]
-        right_answer = option[6]
-        options = ["A", "B", "C", "D", "E"]
-        print "Options: "
-        for i in options:
-            print i + ". " + answer[i]
+    print "Loading Google Model Finished."
+    my_network = model1.Bd_LSTM_layer(name="TC")
+    init = tf.global_variables_initializer()
+    with tf.Session() as sess:
+        saver = tf.train.Saver()
+        saver.restore(sess, "./model/model.ckpt")
+        print "Loading LSTM Model and opening Tensorflow Finished."
+        for No in range(10):
+            print "========== No: " + str(No + 1) + " =========="
+            commit = "select * from GREQ1 where No=%d" % (No + 1)
+            cursor.execute(commit)
+            question = cursor.fetchall()[0]
+            question1 = question[1]
+            question2 = question[2]
+            print "Question: " + question1 + "_____" + question2
+            commit = "select * from GREA1 where No=%d" % (No + 1)
+            cursor.execute(commit)
+            option = cursor.fetchall()[0]
+            answer = {}
+            answer["A"] = option[1]
+            answer["B"] = option[2]
+            answer["C"] = option[3]
+            answer["D"] = option[4]
+            answer["E"] = option[5]
+            right_answer = option[6]
+            options = ["A", "B", "C", "D", "E"]
+            print "Options: "
+            for i in options:
+                print i + ". " + answer[i]
 
-        data = generate(question1, question2, answer, model_google, options)
-        # data =grabVecs("predict.pkl")
-        my_network = model1.Bd_LSTM_layer(name="TC")
-        print "Analysis......"
-        init = tf.global_variables_initializer()
-        with tf.Session() as sess:
+            data = generate(question1, question2, answer, model_google, options)
+            # data =grabVecs("predict.pkl")
+            print "Analysis......"
             results, points = predict(my_network, data, sess)
-        distance = []
-        for i in range(5):
-            distance.append(points[i][0][1] - points[i][0][0])
-        maximum = max(distance)
-        for i in range(5):
-            distance[i] /= maximum
-            if distance[i] == 1:
-                print "Answer: " + options[i]
-        print distance
-        print "Right answer: " + right_answer
+            distance = []
+            for i in range(5):
+                distance.append(points[i][0][1] - points[i][0][0])
+            maximum = max(distance)
+            for i in range(5):
+                distance[i] /= maximum
+                if distance[i] == 1:
+                    print "Answer: " + options[i]
+            print distance
+            print "Right answer: " + right_answer
 
