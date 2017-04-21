@@ -58,7 +58,8 @@ if __name__ == "__main__":
         saver = tf.train.Saver()
         saver.restore(sess, "./model/model.ckpt")
         print "Loading LSTM Model and opening Tensorflow Finished."
-        for No in range(10):
+        count = 0
+        for No in range(100):
             print "========== No: " + str(No + 1) + " =========="
             commit = "select * from GREQ1 where No=%d" % (No + 1)
             cursor.execute(commit)
@@ -93,6 +94,8 @@ if __name__ == "__main__":
                 distance[i] /= maximum
                 if distance[i] == 1:
                     print "Answer: " + options[i]
+                    if options[i] == right_answer:
+                        count += 1
             print distance
             print "Right answer: " + right_answer
-
+        print "Accuracy: " + str(count/100.0)
