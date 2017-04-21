@@ -80,38 +80,40 @@ class Bd_LSTM_layer(nerual_network):
 class data(nerual_network):
     def __init__(self, path):
         super(data, self).__init__()
-        _x_train = self.grabVecs(path + "dataset.pkl")
-        _y_train = self.grabVecs(path + "label.pkl")
-        self.total = len(_x_train)
+        self._x_train = self.grabVecs(path + "dataset.pkl")
+        self._y_train = self.grabVecs(path + "label.pkl")
+        self.total0 = len(self._x_train)
         self.rest = 4
         random_list = []
-        for i in range(self.total):
+        for i in range(self.total0):
             random_list.append(i)
         np.random.shuffle(random_list)
         self.x_train = []
         self.y_train = []
         self.x_test = []
         self.y_test = []
-        train = random_list[:self.total - self.batch_size]
-        test = random_list[self.total - self.batch_size:]
+        train = random_list[:self.total0 - self.batch_size]
+        test = random_list[self.total0 - self.batch_size:]
         for i in test:
-            self.x_test.append(_x_train[i])
-            self.y_test.append(_y_train[i])
+            self.x_test.append(self._x_train[i])
+            self.y_test.append(self._y_train[i])
 
         for i in range(self.rest):
             np.random.shuffle(train)
             for i in train:
-                self.x_train.append(_x_train[i])
-                self.y_train.append(_y_train[i])
+                self.x_train.append(self._x_train[i])
+                self.y_train.append(self._y_train[i])
 
         for i in range(self.rest // 2):
             for i in random_list:
-                self.x_train.append(_x_train[i])
-                self.y_train.append(_y_train[i])
+                self.x_train.append(self._x_train[i])
+                self.y_train.append(self._y_train[i])
 
         self.total = len(self.x_train)
         self.start = 0
+        self.start0 = 0
         self.max = self.total // self.batch_size
+        self.max0 = self.total0 // self.batch_size
 
     def next_batch(self):
         batch_x = np.array(self.x_train[(self.start % self.max) * self.batch_size: (self.start % self.max + 1) * self.batch_size])
@@ -122,6 +124,12 @@ class data(nerual_network):
     def test_batch(self):
         batch_x = np.array(self.x_test)
         batch_y = np.array(self.y_test)
+        return batch_x, batch_y
+
+    def next_predict_batch(self):
+        batch_x = np.array(self._x_train[(self.start0 % self.max0) * self.batch_size: (self.start0 % self.max0 + 1) * self.batch_size])
+        batch_y = np.array(self._y_train[(self.start0 % self.max0) * self.batch_size: (self.start0 % self.max0 + 1) * self.batch_size])
+        self.start0 += 1
         return batch_x, batch_y
 
     def grabVecs(self, filename):
