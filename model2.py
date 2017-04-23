@@ -4,7 +4,7 @@ import numpy as np
 
 
 class nerual_network(object):
-    def __init__(self, steps=49, inputs=300, hidden_d=300, hidden_q=64, batch_size=256, classes=2, learning_rate=0.001):
+    def __init__(self, steps=49, inputs=300, hidden_d=300, hidden_q=64, batch_size=10, classes=2, learning_rate=0.001):
         self.steps = steps
         self.inputs = inputs
         self.hidden_d = hidden_d
@@ -14,9 +14,9 @@ class nerual_network(object):
         self.learning_rate = learning_rate
 
 
-class Bd_LSTM_layer(nerual_network):
+class Attensive_Reader(nerual_network):
     def __init__(self, name="N1"):
-        super(Bd_LSTM_layer, self).__init__()
+        super(Attensive_Reader, self).__init__()
         self.name = name
         self.output = None
         self.cross_entropy = None
@@ -32,20 +32,20 @@ class Bd_LSTM_layer(nerual_network):
         with tf.variable_scope("dense_layer"):
             outputs_d = tf.transpose(outputs_d, [1, 0, 2])
             time_seq = tf.reshape(outputs_d, [-1, self.steps * 2 * self.inputs])
-            hidden1_w = tf.Variable(tf.random_normal([self.steps * 2 * self.inputs, self.hidden_d]), name='h1_w')
-            hidden1_b = tf.Variable(tf.random_normal([self.hidden_d]), name='h1_b'),
-            hd_1 = tf.matmul(time_seq, hidden1_w) + hidden1_b
+            hidden1_d_w = tf.Variable(tf.random_normal([self.steps * 2 * self.inputs, self.hidden_d]), name='hd1_w')
+            hidden1_d_b = tf.Variable(tf.random_normal([self.hidden_d]), name='hd1_b'),
+            hd_1 = tf.matmul(time_seq, hidden1_d_w) + hidden1_d_b
 
         with tf.variable_scope("dropout"):
-            self.keep_prob = tf.placeholder(tf.float32, name="keep_prob")
-            hd_drop = tf.nn.dropout(hd_1, self.keep_prob)
+            self.keep_prob_d = tf.placeholder(tf.float32, name="keep_prob_d")
+            hd_drop = tf.nn.dropout(hd_1, self.keep_prob_d)
 
         with tf.variable_scope("readout_layer"):
-            hidden2_w = tf.Variable(tf.random_normal([self.hidden_d, self.classes]), name='h3_w')
-            hidden2_b = tf.Variable(tf.random_normal([self.classes]), name='h3_b')
-            output_d = tf.matmul(hd_drop, hidden2_w) + hidden2_b
+            hidden2_d_w = tf.Variable(tf.random_normal([self.hidden_d, self.classes]), name='hd2_w')
+            hidden2_d_b = tf.Variable(tf.random_normal([self.classes]), name='hd2_b')
+            output_d = tf.matmul(hd_drop, hidden2_d_w) + hidden2_d_b
 
-        self.q = tf.placeholder("float", [None, self.steps, self.inputs], name="x")
+        self.q = tf.placeholder("float", [None, self.steps, self.inputs], name="q")
         with tf.variable_scope("input_layer_q"):
             input_q = self.shape_tranform(self.q, self.steps)
 
@@ -53,18 +53,67 @@ class Bd_LSTM_layer(nerual_network):
             outputs_q, output1_q, output2_q = self.create_LSTM_layer(input_q, seq_len=self.steps)
 
         with tf.variable_scope("hidden_layer_q"):
-            outputs_q = tf.reshape(outputs_q, [-1, self.inputs])  # (n_steps*batch_size, n_input)
-            hidden3_w = tf.Variable(tf.random_normal([2 * self.inputs, 2 * self.hidden_q]), name='h1_w')
-            hidden3_b = tf.Variable(tf.random_normal([2 * self.hidden_q]), name='h1_b'),
-            hq1 = tf.matmul(outputs_q, hidden3_w) + hidden3_b
+            outputs_q = tf.reshape(outputs_q, [-1, 2 * self.inputs])  # (n_steps*batch_size, n_input)
+            hidden1_q_w = tf.Variable(tf.random_normal([2 * self.inputs, 2 * self.hidden_q]), name='hq1_w')
+            hidden1_q_b = tf.Variable(tf.random_normal([2 * self.hidden_q]), name='hq1_b'),
+            hq_1 = tf.matmul(outputs_q, hidden1_q_w) + hidden1_q_b
+            hq_1 = tf.split(hq_1, self.steps, 0)
 
-        self.a = tf.placeholder("float", [None, self.steps, self.inputs], name="x")
+        with tf.variable_scope("dropout_q"):
+            self.keep_prob_q = tf.placeholder(tf.float32, name="keep_prob_q")
+            hq1_drop = tf.nn.dropout(hq_1, self.keep_prob_q)
+
+        self.a = tf.placeholder("float", [None, self.steps, self.inputs], name="a")
         with tf.variable_scope("input_layer_a"):
-            input_q = self.shape_tranform(self.q, self.steps)
+            input_a = self.shape_tranform(self.a, self.steps)
 
         with tf.variable_scope("A_LSTM_layer"):
-            outputs_a, output1_a, output2_a = self.create_LSTM_layer(input, seq_len=self.steps)
+            outputs_a, output1_a, output2_a = self.create_LSTM_layer(input_a, seq_len=self.steps)
 
+        with tf.variable_scope("hidden_layer_a_fw"):
+            hidden1_a_w = tf.Variable(tf.random_normal([self.inputs, self.hidden_q]), name='ha1_w')
+            hidden1_a_b = tf.Variable(tf.random_normal([self.hidden_q]), name='ha1_b')
+            output1_a = tf.reshape(output1_a, [-1, self.inputs])
+            ha1_fw = tf.matmul(output1_a, hidden1_a_w) + hidden1_a_b
+            ha1_fw = tf.split(ha1_fw, 2, 0)
+
+        with tf.variable_scope("hidden_layer_a_bw"):
+            output2_a = tf.reshape(output2_a, [-1, self.inputs])
+            ha1_bw = tf.matmul(output2_a, hidden1_a_w) + hidden1_a_b
+            ha1_bw = tf.split(ha1_bw, 2, 0)
+
+        ha_1 = tf.concat([ha1_fw[0], ha1_bw[0]], 1, name="concat")
+        print tf.shape(ha_1)
+
+        with tf.variable_scope("dropout_a"):
+            self.keep_prob_a = tf.placeholder(tf.float32, name="keep_prob_a")
+            ha1_drop = tf.nn.dropout(ha_1, self.keep_prob_d)
+
+        with tf.variable_scope("attention_layer"):
+            Wum = tf.Variable(tf.random_normal([2 * self.hidden_q, 2 * self.hidden_q]), name='Wum'),
+            mu = tf.matmul(ha_1, Wum)
+            m = []
+            Wym = tf.Variable(tf.random_normal([2 * self.hidden_q, 2 * self.hidden_q]), name='Wym'),
+            for i in range(self.steps):
+                m.append(tf.nn.tanh(tf.matmul(hq1_drop[i], Wym) + mu))
+            m = tf.reshape(m, [-1, 2 * self.hidden_q])
+            Wms = tf.Variable(tf.random_normal([2 * self.hidden_q, 1]), name='Wms')
+            s = tf.nn.softmax(tf.exp(tf.matmul(m, Wms)))
+            s = tf.split(s, self.steps, 0)
+            hq1_drop = tf.transpose(hq1_drop, [1, 0, 2])
+            s = tf.transpose(s, [1, 0, 2])
+            r = []
+            for i in range(self.batch_size):
+                r.append(tf.transpose(tf.matmul(tf.transpose(hq1_drop[i]), s[i])))
+            r = tf.reshape(r, [-1, 2 * self.hidden_q])
+            r_drop = tf.nn.dropout(r, self.keep_prob_q)
+
+        with tf.variable_scope("keyword_layer"):
+            Wug = tf.Variable(tf.random_normal([2 * self.hidden_q, self.classes]), name='Wug')
+            Wrg = tf.Variable(tf.random_normal([2 * self.hidden_q, self.classes]), name='Wrg')
+            output_g = tf.nn.tanh(tf.matmul(ha1_drop, Wug) + tf.matmul(r_drop, Wrg))
+
+        self.output = tf.add(output_d, output_g, name="add")
 
         self.y = tf.placeholder("float", [None, self.classes], name="y")
         with tf.variable_scope("loss"):
