@@ -4,7 +4,7 @@ import model2
 
 
 def train(model, data, sess, training_iters, display_step):
-    train_writer = tf.summary.FileWriter('./train', sess.graph)
+    train_writer = tf.summary.FileWriter('./train1', sess.graph)
     sess.run(init)
     step = 0
     while step < training_iters:
@@ -33,7 +33,7 @@ def test(model, data, sess):
 
 def save(sess):
     saver = tf.train.Saver()
-    save_path = saver.save(sess, "./test/model.ckpt")
+    save_path = saver.save(sess, "./test1/model.ckpt")
     print("Model saved in file: %s" % save_path)
 
 
