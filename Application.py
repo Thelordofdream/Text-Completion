@@ -5,6 +5,7 @@ import Word2Vec
 import numpy as np
 import pymysql
 import time
+from draw import draw
 
 
 def predict(model, data, sess):
@@ -76,6 +77,8 @@ if __name__ == "__main__":
             print "Analysis......"
             results, points = predict(my_network, data, sess)
             distance = []
+            if number == 1:
+                draw(points, options)
             for i in range(5):
                 distance.append(points[i][0][1] - points[i][0][0])
             maximum = max(distance)
