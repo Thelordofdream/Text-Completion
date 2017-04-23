@@ -45,7 +45,8 @@ class Bd_LSTM_layer(nerual_network):
                                                                      sequence_length=_seq_len)
 
         with tf.variable_scope("dense_layer"):
-            time_seq = tf.concat([i for i in outputs], 1)
+            outputs = tf.transpose(outputs, [1, 0, 2])
+            time_seq = tf.reshape(outputs, [-1, self.steps * 2 * self.inputs])
             hidden1_w = tf.Variable(tf.random_normal([self.steps * 2 * self.hidden, self.hidden]), name='h1_w')
             hidden1_b = tf.Variable(tf.random_normal([self.hidden]), name='h1_b'),
             h1 = tf.matmul(time_seq, hidden1_w) + hidden1_b

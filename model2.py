@@ -4,10 +4,11 @@ import numpy as np
 
 
 class nerual_network(object):
-    def __init__(self, steps=49, inputs=300, hidden=300, batch_size=256, classes=2, learning_rate=0.001):
+    def __init__(self, steps=49, inputs=300, hidden_d=300, hidden_q=64, batch_size=256, classes=2, learning_rate=0.001):
         self.steps = steps
         self.inputs = inputs
-        self.hidden = hidden
+        self.hidden_d = hidden_d
+        self.hidden_q = hidden_q
         self.batch_size = batch_size
         self.classes = classes
         self.learning_rate = learning_rate
@@ -23,34 +24,52 @@ class Bd_LSTM_layer(nerual_network):
         self.accuracy = None
         self.x = tf.placeholder("float", [None, self.steps, self.inputs], name="x")
         with tf.variable_scope("input_layer"):
-            input = self.shape_tranform()
+            input_d = self.shape_tranform(self.x, self.steps)
 
         with tf.variable_scope("Bd_LSTM_layer"):
-            outputs, output1, output2 = self.create_LSTM_layer(input, seq_len=self.steps)
+            outputs_d, output1_d, output2_d = self.create_LSTM_layer(input_d, seq_len=self.steps)
 
-        with tf.variable_scope("dense_layer_1"):
-            time_seq = tf.concat([i for i in outputs], 1)
-            hidden1_w = tf.Variable(tf.random_normal([self.steps * 2 * self.hidden, 10 * self.hidden]), name='h1_w')
-            hidden1_b = tf.Variable(tf.random_normal([10 * self.hidden]), name='h1_b'),
-            h1 = tf.matmul(time_seq, hidden1_w) + hidden1_b
-
-        with tf.variable_scope("dense_layer_2"):
-            hidden2_w = tf.Variable(tf.random_normal([10 * self.hidden, self.hidden]), name='h2_w')
-            hidden2_b = tf.Variable(tf.random_normal([self.hidden]), name='h2_b'),
-            h2 = tf.nn.sigmoid(tf.matmul(h1, hidden2_w) + hidden2_b)
+        with tf.variable_scope("dense_layer"):
+            outputs_d = tf.transpose(outputs_d, [1, 0, 2])
+            time_seq = tf.reshape(outputs_d, [-1, self.steps * 2 * self.inputs])
+            hidden1_w = tf.Variable(tf.random_normal([self.steps * 2 * self.inputs, self.hidden_d]), name='h1_w')
+            hidden1_b = tf.Variable(tf.random_normal([self.hidden_d]), name='h1_b'),
+            hd_1 = tf.matmul(time_seq, hidden1_w) + hidden1_b
 
         with tf.variable_scope("dropout"):
             self.keep_prob = tf.placeholder(tf.float32, name="keep_prob")
-            h_drop= tf.nn.dropout(h2, self.keep_prob)
+            hd_drop = tf.nn.dropout(hd_1, self.keep_prob)
 
         with tf.variable_scope("readout_layer"):
-            hidden3_w = tf.Variable(tf.random_normal([self.hidden, self.classes]), name='h3_w')
-            hidden3_b = tf.Variable(tf.random_normal([self.classes]), name='h3_b')
-            self.output = tf.matmul(h_drop, hidden3_w) + hidden3_b
+            hidden2_w = tf.Variable(tf.random_normal([self.hidden_d, self.classes]), name='h3_w')
+            hidden2_b = tf.Variable(tf.random_normal([self.classes]), name='h3_b')
+            output_d = tf.matmul(hd_drop, hidden2_w) + hidden2_b
+
+        self.q = tf.placeholder("float", [None, self.steps, self.inputs], name="x")
+        with tf.variable_scope("input_layer_q"):
+            input_q = self.shape_tranform(self.q, self.steps)
+
+        with tf.variable_scope("Q_LSTM_layer"):
+            outputs_q, output1_q, output2_q = self.create_LSTM_layer(input_q, seq_len=self.steps)
+
+        with tf.variable_scope("hidden_layer_q"):
+            outputs_q = tf.reshape(outputs_q, [-1, self.inputs])  # (n_steps*batch_size, n_input)
+            hidden3_w = tf.Variable(tf.random_normal([2 * self.inputs, 2 * self.hidden_q]), name='h1_w')
+            hidden3_b = tf.Variable(tf.random_normal([2 * self.hidden_q]), name='h1_b'),
+            hq1 = tf.matmul(outputs_q, hidden3_w) + hidden3_b
+
+        self.a = tf.placeholder("float", [None, self.steps, self.inputs], name="x")
+        with tf.variable_scope("input_layer_a"):
+            input_q = self.shape_tranform(self.q, self.steps)
+
+        with tf.variable_scope("A_LSTM_layer"):
+            outputs_a, output1_a, output2_a = self.create_LSTM_layer(input, seq_len=self.steps)
+
 
         self.y = tf.placeholder("float", [None, self.classes], name="y")
         with tf.variable_scope("loss"):
-            self.cross_entropy= tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=self.y, logits=self.output))
+            self.cross_entropy = tf.reduce_mean(
+                tf.nn.softmax_cross_entropy_with_logits(labels=self.y, logits=self.output))
         tf.summary.scalar('cross_entropy', self.cross_entropy)
 
         with tf.variable_scope("optimizer"):
@@ -61,21 +80,21 @@ class Bd_LSTM_layer(nerual_network):
 
         self.merged = tf.summary.merge_all()
 
-    def shape_tranform(self):
-        X = tf.transpose(self.x, [1, 0, 2])
+    def shape_tranform(self, x, steps):
+        X = tf.transpose(x, [1, 0, 2])
         X = tf.reshape(X, [-1, self.inputs])
-        X = tf.split(X, self.steps, 0)
+        X = tf.split(X, steps, 0)
         return X
 
     def create_LSTM_layer(self, input, seq_len):
         _seq_len = tf.fill([self.batch_size], tf.constant(seq_len, dtype=tf.float32))
         with tf.variable_scope("Forward_LSTM"):
             with tf.device("/cpu:0"):
-                lstm_fw_cell = rnn.BasicLSTMCell(self.hidden, forget_bias=0.1, state_is_tuple=True)
+                lstm_fw_cell = rnn.BasicLSTMCell(self.inputs, forget_bias=0.1, state_is_tuple=True)
                 lstm_fw_cell = rnn.DropoutWrapper(lstm_fw_cell, input_keep_prob=1.0, output_keep_prob=1.0, seed=None)
         with tf.variable_scope("Backward_LSTM"):
             with tf.device("/cpu:1"):
-                lstm_bw_cell = rnn.BasicLSTMCell(self.hidden, forget_bias=0., state_is_tuple=True)
+                lstm_bw_cell = rnn.BasicLSTMCell(self.inputs, forget_bias=0., state_is_tuple=True)
                 lstm_bw_cell = rnn.DropoutWrapper(lstm_bw_cell, input_keep_prob=1.0, output_keep_prob=1.0, seed=None)
         outputs, output1, output2 = rnn.static_bidirectional_rnn(lstm_fw_cell, lstm_bw_cell, input,
                                                                  initial_state_fw=lstm_fw_cell.zero_state(
@@ -84,6 +103,7 @@ class Bd_LSTM_layer(nerual_network):
                                                                      self.batch_size, tf.float32),
                                                                  sequence_length=_seq_len)
         return outputs, output1, output2
+
 
 class data(nerual_network):
     def __init__(self, path):
@@ -116,8 +136,10 @@ class data(nerual_network):
         self.max = self.total // self.batch_size
 
     def next_batch(self):
-        batch_x = np.array(self.x_train[(self.start % self.max) * self.batch_size: (self.start % self.max + 1) * self.batch_size])
-        batch_y = np.array(self.y_train[(self.start % self.max) * self.batch_size: (self.start % self.max + 1) * self.batch_size])
+        batch_x = np.array(
+            self.x_train[(self.start % self.max) * self.batch_size: (self.start % self.max + 1) * self.batch_size])
+        batch_y = np.array(
+            self.y_train[(self.start % self.max) * self.batch_size: (self.start % self.max + 1) * self.batch_size])
         self.start += 1
         return batch_x, batch_y
 
