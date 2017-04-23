@@ -8,4 +8,7 @@ model/
 test/
 train/
 data for input0/
-model.pyc
+model1/
+model1.pyc
+model2/
+draw.pyc
