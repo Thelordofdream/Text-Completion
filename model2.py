@@ -26,21 +26,7 @@ class Bd_LSTM_layer(nerual_network):
             input = self.shape_tranform()
 
         with tf.variable_scope("Bd_LSTM_layer"):
-            _seq_len = tf.fill([self.batch_size], tf.constant(self.steps, dtype=tf.float32))
-            with tf.variable_scope("Forward_LSTM"):
-                with tf.device("/cpu:0"):
-                    lstm_fw_cell = rnn.BasicLSTMCell(self.hidden, forget_bias=0.1, state_is_tuple=True)
-                    lstm_fw_cell = rnn.DropoutWrapper(lstm_fw_cell, input_keep_prob=1.0, output_keep_prob=1.0, seed=None)
-            with tf.variable_scope("Backward_LSTM"):
-                with tf.device("/cpu:1"):
-                    lstm_bw_cell = rnn.BasicLSTMCell(self.hidden, forget_bias=0., state_is_tuple=True)
-                    lstm_bw_cell = rnn.DropoutWrapper(lstm_bw_cell, input_keep_prob=1.0, output_keep_prob=1.0, seed=None)
-            outputs, output1, output2 = rnn.static_bidirectional_rnn(lstm_fw_cell, lstm_bw_cell, input,
-                                                                     initial_state_fw=lstm_fw_cell.zero_state(
-                                                                         self.batch_size, tf.float32),
-                                                                     initial_state_bw=lstm_bw_cell.zero_state(
-                                                                         self.batch_size, tf.float32),
-                                                                     sequence_length=_seq_len)
+            outputs, output1, output2 = self.create_LSTM_layer(input, seq_len=self.steps)
 
         with tf.variable_scope("dense_layer_1"):
             time_seq = tf.concat([i for i in outputs], 1)
@@ -81,6 +67,23 @@ class Bd_LSTM_layer(nerual_network):
         X = tf.split(X, self.steps, 0)
         return X
 
+    def create_LSTM_layer(self, input, seq_len):
+        _seq_len = tf.fill([self.batch_size], tf.constant(seq_len, dtype=tf.float32))
+        with tf.variable_scope("Forward_LSTM"):
+            with tf.device("/cpu:0"):
+                lstm_fw_cell = rnn.BasicLSTMCell(self.hidden, forget_bias=0.1, state_is_tuple=True)
+                lstm_fw_cell = rnn.DropoutWrapper(lstm_fw_cell, input_keep_prob=1.0, output_keep_prob=1.0, seed=None)
+        with tf.variable_scope("Backward_LSTM"):
+            with tf.device("/cpu:1"):
+                lstm_bw_cell = rnn.BasicLSTMCell(self.hidden, forget_bias=0., state_is_tuple=True)
+                lstm_bw_cell = rnn.DropoutWrapper(lstm_bw_cell, input_keep_prob=1.0, output_keep_prob=1.0, seed=None)
+        outputs, output1, output2 = rnn.static_bidirectional_rnn(lstm_fw_cell, lstm_bw_cell, input,
+                                                                 initial_state_fw=lstm_fw_cell.zero_state(
+                                                                     self.batch_size, tf.float32),
+                                                                 initial_state_bw=lstm_bw_cell.zero_state(
+                                                                     self.batch_size, tf.float32),
+                                                                 sequence_length=_seq_len)
+        return outputs, output1, output2
 
 class data(nerual_network):
     def __init__(self, path):
