@@ -71,7 +71,6 @@ if __name__ == "__main__":
             print "Options: "
             for i in options:
                 print i + ". " + answer[i]
-
             start = time.clock()
             data = generate(question1, question2, answer, model_google, options)
             print "Analysis......"

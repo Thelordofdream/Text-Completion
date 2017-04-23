@@ -12,9 +12,6 @@ def draw(points, options):
     #           [-7.54985332, -5.67611361]]
     x = [i[0][0] for i in points]
     y = [i[0][1] for i in points]
-    for i in range(len(points)):
-        distance = y[i] - x[i]
-        print distance
     plt.plot(x, y, "o")
     for i in range(len(options)):
         plt.annotate(options[i], fontsize=16, xy=(points[i][0][0], points[i][0][1]), xytext=(points[i][0][0] + 1, points[i][0][1] + 4),
