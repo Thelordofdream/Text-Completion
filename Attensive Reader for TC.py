@@ -45,8 +45,8 @@ def save(sess):
 
 
 if __name__ == "__main__":
-    training_iters = 20
-    display_step = 10
+    training_iters = 10
+    display_step = 1
 
     data = model2.data(path="./data for input0/")
     my_network = model2.Attensive_Reader(name="TC")

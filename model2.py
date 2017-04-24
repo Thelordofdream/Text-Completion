@@ -83,17 +83,16 @@ class Attensive_Reader(nerual_network):
             ha1_bw = tf.split(ha1_bw, 2, 0)
 
         ha_1 = tf.concat([ha1_fw[0], ha1_bw[0]], 1, name="concat")
-        print tf.shape(ha_1)
 
         with tf.variable_scope("dropout_a"):
             self.keep_prob_a = tf.placeholder(tf.float32, name="keep_prob_a")
             ha1_drop = tf.nn.dropout(ha_1, self.keep_prob_d)
 
         with tf.variable_scope("attention_layer"):
-            Wum = tf.Variable(tf.random_normal([2 * self.hidden_q, 2 * self.hidden_q]), name='Wum'),
+            Wum = tf.Variable(tf.random_normal([2 * self.hidden_q, 2 * self.hidden_q]), name='Wum')
             mu = tf.matmul(ha_1, Wum)
             m = []
-            Wym = tf.Variable(tf.random_normal([2 * self.hidden_q, 2 * self.hidden_q]), name='Wym'),
+            Wym = tf.Variable(tf.random_normal([2 * self.hidden_q, 2 * self.hidden_q]), name='Wym')
             for i in range(self.steps):
                 m.append(tf.nn.tanh(tf.matmul(hq1_drop[i], Wym) + mu))
             m = tf.reshape(m, [-1, 2 * self.hidden_q])
