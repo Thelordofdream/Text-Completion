@@ -14,7 +14,7 @@ def storeVecs(input, filename):
     pickle.dump(input, fw)
     fw.close()
 
-goole_vecs = grabVecs('./data for input1/word_vecs.pkl')
+goole_vecs = grabVecs('../data for input1/q_vecs.pkl')
 dataset = []
 for a in goole_vecs:
     sentence = np.zeros((49, 300))
@@ -22,15 +22,15 @@ for a in goole_vecs:
     start = int((49 - m) / 2)
     sentence[start:start + m] = a
     dataset.append(sentence)
-storeVecs(dataset, './data for input1/dataset.pkl')
+storeVecs(dataset, '../data for input0/q.pkl')
 
-connection = pymysql.connect(user='root', password='root', database='GRE')
-cursor = connection.cursor()
-commit = "select * from GRES1"
-cursor.execute(commit)
-label = []
-for each in cursor.fetchall():
-    single = [0, 0]
-    single[each[2]] = 1
-    label.append(single)
-storeVecs(label, './data for input1/label.pkl')
+goole_vecs = grabVecs('../data for input1/a_vecs.pkl')
+dataset = []
+for a in goole_vecs:
+    sentence = np.zeros((4, 300))
+    m = len(a)
+    if not m == 0:
+        start = int((4 - m) / 2)
+        sentence[start:start + m] = a
+    dataset.append(sentence)
+storeVecs(dataset, '../data for input0/a.pkl')
