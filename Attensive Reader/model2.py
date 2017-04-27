@@ -63,12 +63,12 @@ class Attensive_Reader(nerual_network):
             self.keep_prob_q = tf.placeholder(tf.float32, name="keep_prob_q")
             hq1_drop = tf.nn.dropout(hq_1, self.keep_prob_q)
 
-        self.a = tf.placeholder("float", [None, self.steps, self.inputs], name="a")
+        self.a = tf.placeholder("float", [None, 4, self.inputs], name="a")
         with tf.variable_scope("input_layer_a"):
-            input_a = self.shape_tranform(self.a, self.steps)
+            input_a = self.shape_tranform(self.a, 4)
 
         with tf.variable_scope("A_LSTM_layer"):
-            outputs_a, output1_a, output2_a = self.create_LSTM_layer(input_a, seq_len=self.steps)
+            outputs_a, output1_a, output2_a = self.create_LSTM_layer(input_a, seq_len=4)
 
         with tf.variable_scope("hidden_layer_a_fw"):
             hidden1_a_w = tf.Variable(tf.random_normal([self.inputs, self.hidden_q]), name='ha1_w')
@@ -157,6 +157,8 @@ class data(nerual_network):
     def __init__(self, path):
         super(data, self).__init__()
         _x_train = self.grabVecs(path + "dataset.pkl")
+        _q_train = self.grabVecs(path + "q.pkl")
+        _a_train = self.grabVecs(path + "a.pkl")
         _y_train = self.grabVecs(path + "label.pkl")
         self.total = len(_x_train)
         self.rest = 4
@@ -165,8 +167,12 @@ class data(nerual_network):
             random_list.append(i)
         np.random.shuffle(random_list)
         self.x_train = []
+        self.q_train = []
+        self.a_train = []
         self.y_train = []
         self.x_test = []
+        self.q_test = []
+        self.a_test = []
         self.y_test = []
         train = random_list[:self.total - self.batch_size]
         test = random_list[self.total - self.batch_size:]
@@ -178,6 +184,8 @@ class data(nerual_network):
             np.random.shuffle(train)
             for i in train:
                 self.x_train.append(_x_train[i])
+                self.q_train.append(_q_train[i])
+                self.a_train.append(_a_train[i])
                 self.y_train.append(_y_train[i])
         self.total = len(self.x_train)
         self.start = 0
@@ -186,15 +194,21 @@ class data(nerual_network):
     def next_batch(self):
         batch_x = np.array(
             self.x_train[(self.start % self.max) * self.batch_size: (self.start % self.max + 1) * self.batch_size])
+        batch_q = np.array(
+            self.q_train[(self.start % self.max) * self.batch_size: (self.start % self.max + 1) * self.batch_size])
+        batch_a = np.array(
+            self.a_train[(self.start % self.max) * self.batch_size: (self.start % self.max + 1) * self.batch_size])
         batch_y = np.array(
             self.y_train[(self.start % self.max) * self.batch_size: (self.start % self.max + 1) * self.batch_size])
         self.start += 1
-        return batch_x, batch_y
+        return batch_x, batch_q, batch_a, batch_y
 
     def test_batch(self):
         batch_x = np.array(self.x_test)
+        batch_q = np.array(self.q_test)
+        batch_a = np.array(self.a_test)
         batch_y = np.array(self.y_test)
-        return batch_x, batch_y
+        return batch_x, batch_q, batch_a, batch_y
 
     def grabVecs(self, filename):
         import pickle
