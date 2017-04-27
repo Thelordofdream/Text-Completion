@@ -1,10 +1,12 @@
-import tensorflow as tf
-import model1
+import time
+
 import gensim
-import Word2Vec
 import numpy as np
 import pymysql
-import time
+import tensorflow as tf
+
+import Word2Vec
+import model1
 from draw import draw
 
 

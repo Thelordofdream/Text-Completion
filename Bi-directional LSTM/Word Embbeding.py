@@ -1,7 +1,7 @@
-import Word2Vec
 import gensim
-import numpy as np
 import pymysql.cursors
+
+import Word2Vec
 
 # ===========================================
 # load data
