@@ -178,6 +178,8 @@ class data(nerual_network):
         test = random_list[self.total - self.batch_size:]
         for i in test:
             self.x_test.append(_x_train[i])
+            self.q_test.append(_q_train[i])
+            self.a_test.append(_a_train[i])
             self.y_test.append(_y_train[i])
 
         for i in range(self.rest):
