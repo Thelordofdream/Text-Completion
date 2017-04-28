@@ -123,7 +123,7 @@ if __name__ == "__main__":
                         count += 1
             print distance
             print "Right answer: " + right_answer
-            print "Already finish: %d / %d" % (count, No)
+            print "Already finish: %d / %d" % (count, No + 1)
         print count
         print "Accuracy: " + str(count/float(number))
         connection.close()
