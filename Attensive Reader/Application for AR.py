@@ -81,7 +81,7 @@ if __name__ == "__main__":
         saver.restore(sess, "../test4/model.ckpt")
         print "Loading LSTM Model and opening Tensorflow Finished."
         count = 0
-        number = 1001
+        number = 100
         for No in range(number):
             print "========== No: " + str(No + 1) + " =========="
             commit = "select * from GREQ1 where No=%d" % (No + 1)
