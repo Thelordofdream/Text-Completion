@@ -41,16 +41,16 @@ if __name__ == "__main__":
     connection = pymysql.connect(user='root', password='root', database='GRE')
     cursor = connection.cursor()
     print "Loading models......"
-    model_google = gensim.models.KeyedVectors.load_word2vec_format('./GoogleModel/GoogleNews-vectors-negative300.bin', binary=True)
+    model_google = gensim.models.KeyedVectors.load_word2vec_format('../GoogleModel/GoogleNews-vectors-negative300.bin', binary=True)
     print "Loading Google Model Finished."
     my_network = model1.Bd_LSTM_layer(name="TC")
     init = tf.global_variables_initializer()
     with tf.Session() as sess:
         saver = tf.train.Saver()
-        saver.restore(sess, "./model/model.ckpt")
+        saver.restore(sess, "../test3/model.ckpt")
         print "Loading LSTM Model and opening Tensorflow Finished."
         count = 0
-        number = 1
+        number = 100
         for No in range(number):
             print "========== No: " + str(No + 1) + " =========="
             commit = "select * from GREQ1 where No=%d" % (No + 1)
