@@ -4,7 +4,7 @@ import numpy as np
 
 
 class nerual_network(object):
-    def __init__(self, steps=49, inputs=300, hidden_d=300, hidden_q=64, batch_size=100, classes=2, learning_rate=0.001):
+    def __init__(self, steps=49, inputs=300, hidden_d=300, hidden_q=64, batch_size=1, classes=2, learning_rate=0.001):
         self.steps = steps
         self.inputs = inputs
         self.hidden_d = hidden_d
