@@ -1,0 +1,1308 @@
+========== No: 1 ==========
+Question: It is a paradox of the Victorians that they were both _____ and, through their empire, cosmopolitan.
+Options:
+A. capricious
+B. insular
+C. mercenary
+D. idealistic
+E. intransigent
+Analysis......
+Answer: B Time used: 17.807864s
+[-1.1670673, 1.0, -1.3019977, -1.4859676, -0.3108786]
+Right answer: B
+Already finish: 1 / 1
+========== No: 2 ==========
+Question: My grandma has as strong belief in all things _____: she insists, for example, that the house in which she lived as a child was haunted.
+Options:
+A. clamorous
+B. invidious
+C. numinous
+D. empirical
+E. sonorous
+Analysis......
+Answer: C Time used: 14.436227s
+[-0.84931308, -0.39232537, 1.0, 0.55950785, 0.78949505]
+Right answer: C
+Already finish: 2 / 2
+========== No: 3 ==========
+Question: Among the Meakambut people of Papua New Guinea, legends are associated with specific caves in the Sepik region, and these legends are _____: only the cave owner can share its secrets.
+Options:
+A. impenetrable
+B. immutable
+C. proprietary
+D. didactic
+E. self-perpetuating
+Analysis......
+Answer: E Time used: 15.752668s
+[-0.5951845, -0.48168606, 0.7528196, -0.5756672, 1.0]
+Right answer: C
+Already finish: 2 / 3
+========== No: 4 ==========
+Question: We often regard natural phenomena like rainfall as mysterious and unpredictable;  although for short time spans and particular places they appear so, in fact on a truly global scale, nature has been a model of _____.
+Options:
+A. reliability
+B. diversity
+C. complexity
+D. plasticity
+E. discontinuity
+Analysis......
+Answer: A Time used: 15.620074s
+[1.0, -1.0474216, -0.46972749, 0.21130978, -0.65326387]
+Right answer: A
+Already finish: 3 / 4
+========== No: 5 ==========
+Question: Though we live in an era of stunning scientific achievement, many otherwise educated people remain indifferent to or contemptuous of such achievement, even going so far as to _____ their ignorance of basic physics.
+Options:
+A. decry
+B. condone
+C. remedy
+D. boast of
+E. downplay
+Analysis......
+Answer: C Time used: 14.877305s
+[0.93274623, 0.85548079, 1.0, 0.97423613, 0.91702503]
+Right answer: D
+Already finish: 3 / 5
+========== No: 6 ==========
+Question: Slight but _____ variation in the timing of the star's pulses led astronomers to deduce that it was being pulled backwards and forwards by three planets orbiting around it.
+Options:
+A. subtle
+B. regular
+C. undetectable
+D. inconsequential
+E. explicable
+Analysis......
+Answer: B Time used: 13.762196s
+[0.0031500133, 1.0, 0.69034243, 0.56462073, 0.77093619]
+Right answer: B
+Already finish: 4 / 6
+========== No: 7 ==========
+Question: In the last two hundreds years, the practice of archaeology has changed greatly, from digging up ancient artifacts for use by wealthy individuals as art objects to analyzing the detritus of everyday life in the laboratory, and thus from _____ to data collection.
+Options:
+A. supposition
+B. theorizing
+C. fact-finding
+D. treasure hunting
+E. scientific discovery
+Analysis......
+Answer: A Time used: 14.148211s
+[1.0, 0.87126219, 0.92256844, 0.38857681, 0.16151966]
+Right answer: D
+Already finish: 4 / 7
+========== No: 8 ==========
+Question: History teaches us that science is not _____ enterprise; indeed, it is quite the opposite, a motley assortment of tools designed to safeguard researchers against their own biases.
+Options:
+A. an opportunistic
+B. an anomalous
+C. a haphazard
+D. a collective
+E. a monolithic
+Analysis......
+Answer: E Time used: 13.680158s
+[-0.69169992, -0.39735243, 0.82835156, 0.93405241, 1.0]
+Right answer: E
+Already finish: 5 / 8
+========== No: 9 ==========
+Question: The Labrador duck is one of the most _____ extinct birds, although there are a fair number of specimens, few have yielded reliable data and little is known about the species' breeding patterns.
+Options:
+A. anomalous
+B. controversial
+C. enigmatic
+D. misrepresented
+E. cherished
+Analysis......
+Answer: B Time used: 13.393796s
+[-2.7123961, 1.0, -1.1844736, -0.90197492, -0.3525345]
+Right answer: C
+Already finish: 5 / 9
+========== No: 10 ==========
+Question: The artist's career was remarkable partly because it was so _____: she died, with only a few paintings to her credit, while still in her twenties.
+Options:
+A. felicitous
+B. prolific
+C. enduring
+D. conventional
+E. abbreviated
+Analysis......
+Answer: E Time used: 13.45436s
+[-0.6548236, -0.14323039, -0.3127867, 0.62103552, 1.0]
+Right answer: E
+Already finish: 6 / 10
+========== No: 11 ==========
+Question: The province has long claimed to be just another developing region, even as its economy _____ those of other regions and threatens to eclipse the rest of the country combined.
+Options:
+A. parallels
+B. bolsters
+C. corroborates
+D. outstrips
+E. engages
+Analysis......
+Answer: D Time used: 13.501907s
+[-0.36318013, 0.93578404, 0.67071712, 1.0, 0.81350285]
+Right answer: D
+Already finish: 7 / 11
+========== No: 12 ==========
+Question: Parker's model of human reflects a _____ outlook, in stark contrast to the generally pessimistic analyses of her colleagues in the economics department.
+Options:
+A. prescient
+B. circumspect
+C. technical
+D. magisterial
+E. sanguine
+Analysis......
+Answer: E Time used: 14.031878s
+[-0.75010931, -0.17773651, 0.46152207, 0.75505149, 1.0]
+Right answer: E
+Already finish: 8 / 12
+========== No: 13 ==========
+Question: He was so _____ during the filming of the movie that crew members nicknamed his "The Angriest Man in the World"
+Options:
+A. loquacious
+B. irascible
+C. perfidious
+D. sanguine
+E. voracious
+Analysis......
+Answer: B Time used: 13.442189s
+[-0.83595592, 1.0, -0.35400411, -0.90613842, -0.45684457]
+Right answer: B
+Already finish: 9 / 13
+========== No: 14 ==========
+Question: The film was a _____: its elements were assembled more or less haphazardly from a dozen of different sources.
+Options:
+A. burlesque
+B. satire
+C. pastich
+D. chronicle
+E. parody
+Analysis......
+Answer: C Time used: 13.480867s
+[-0.60075313, -0.017209236, 1.0, 0.47135848, -0.14257739]
+Right answer: C
+Already finish: 10 / 14
+========== No: 15 ==========
+Question: Nylenna's study showed that errors in scientific manuscripts submitted for publication often escape reviewers' notice results that were not _____: when Godlee conducted a study of the same phenomenon, her finding were similar.
+Options:
+A. credible
+B. unwelcome
+C. anomalous
+D. quantifiable
+E. consequential
+Analysis......
+Answer: C Time used: 13.525615s
+[-0.61922032, 0.6866523, 1.0, -0.18947482, -0.19392084]
+Right answer: C
+Already finish: 11 / 15
+========== No: 16 ==========
+Question: Among the Meakambut people of Papua New Guinea, legends are associated with specific caves in the Sepik region, and these legends are _____: only the cave owner can share its secrets.
+Options:
+A. impenetrable
+B. immutable
+C. proprietary
+D. didactic
+E. self-perpetuating
+Analysis......
+Answer: E Time used: 13.990838s
+[-0.5951845, -0.48168606, 0.7528196, -0.5756672, 1.0]
+Right answer: C
+Already finish: 11 / 16
+========== No: 17 ==========
+Question: The title of her final and unfinished film, Escape, was _____: indeed while shooting it, she was preoccupied with thoughts of desertion.
+Options:
+A. quixotic
+B. apt
+C. misleading
+D. inconsequential
+E. uncharacteristic
+Analysis......
+Answer: B Time used: 14.121012s
+[-1.6193414, 1.0, -0.42955786, -0.029380279, 0.073735856]
+Right answer: B
+Already finish: 12 / 17
+========== No: 18 ==========
+Question: This is neither praise nor criticism, neither a compliment nor _____, just an observation.
+Options:
+A. an exposition
+B. an elucidation
+C. an animadversion
+D. a culmination
+E. a divination
+Analysis......
+Answer: C Time used: 13.389239s
+[-0.43553048, 0.14779679, 1.0, 0.75277883, 0.40275574]
+Right answer: C
+Already finish: 13 / 18
+========== No: 19 ==========
+Question: The identity of hominid remains found in a cave in the Altai Mountains was _____ until Paabo and his colleagues ended the speculation by showing that DNA sequences indicated the bones belonged to Neanderthals.
+Options:
+A. extraneous
+B. conjectural
+C. improbable
+D. demonstrable
+E. consistent
+Analysis......
+Answer: E Time used: 13.605003s
+[2.8641338, 2.8664308, 1.5311887, 2.5494106, 1.0]
+Right answer: B
+Already finish: 13 / 19
+========== No: 20 ==========
+Question: In a production process that is complex and often unpredictable, roles that start out discretely defined may become quite _____.
+Options:
+A. confused
+B. perfunctory
+C. independent
+D. overt
+E. exacting
+Analysis......
+Answer: C Time used: 14.363683s
+[0.57611305, -0.59022593, 1.0, 0.58249056, 0.95010382]
+Right answer: A
+Already finish: 13 / 20
+========== No: 21 ==========
+Question: Because people expect theater directors to be authoritarians, many were surprised that Clark was so _____.
+Options:
+A. histrionic
+B. megalomaniacal
+C. egalitarian
+D. indolent
+E. charismatic
+Analysis......
+Answer: C Time used: 14.901659s
+[1.3526112, 2.3736911, 1.0, 1.1506672, 2.1503224]
+Right answer: C
+Already finish: 14 / 21
+========== No: 22 ==========
+Question: The students' _____ natures were in sharp contrast to the imperturbable dispositions of their teacher.
+Options:
+A. volatile
+B. duplicitous
+C. apathetic
+D. cunning
+E. blithe
+Analysis......
+Answer: A Time used: 14.947477s
+[1.0, -0.81639278, 0.55241346, -0.59327877, -1.1818032]
+Right answer: A
+Already finish: 15 / 22
+========== No: 23 ==========
+Question: Despite the neighborhood's lingering reputation for _____, it has in fact become increasingly varied in its architecture and demographics.
+Options:
+A. boisterousness
+B. unpretentiousness
+C. idiosyncrasy
+D. accessibility
+E. homogeneity
+Analysis......
+Answer: E Time used: 13.940331s
+[-0.60226512, 0.40231344, 0.78669935, -0.16602603, 1.0]
+Right answer: E
+Already finish: 16 / 23
+========== No: 24 ==========
+Question: That Seiberg and Witten lack celebrity can be explained by the _____ nature of their pursuit: the mathematical exploration of four-dimensional space.
+Options:
+A. pedestrian
+B. esoteric
+C. compelling
+D. global
+E. univocal
+Analysis......
+Answer: B Time used: 13.436473s
+[-0.82145083, 1.0, 0.76125938, 0.35563463, 0.27256212]
+Right answer: B
+Already finish: 17 / 24
+========== No: 25 ==========
+Question: Paintings created in India during the Mughal dynasty were _____ in ambition but ornamental in presentation: in one direction they have a affinity with newspaper photographs, while in the other they have the intricacy of jewels.
+Options:
+A. metaphorical
+B. documentary
+C. aesthetic
+D. sectarian
+E. baroque
+Analysis......
+Answer: B Time used: 14.562903s
+[-0.38715473, 1.0, 0.23906082, 0.36947688, 0.53990859]
+Right answer: B
+Already finish: 18 / 25
+========== No: 26 ==========
+Question: It is a paradox of the Victorians that they were both _____ and, through their empire, cosmopolitan.
+Options:
+A. capricious
+B. insular
+C. mercenary
+D. idealistic
+E. intransigent
+Analysis......
+Answer: B Time used: 13.175385s
+[-1.1670673, 1.0, -1.3019977, -1.4859676, -0.3108786]
+Right answer: B
+Already finish: 19 / 26
+========== No: 27 ==========
+Question: Blake's reputation for weakness is _____: almost all who have worked with him say he is a disciplined, intellectually formidable, and very tough politician.
+Options:
+A. specious
+B. pervasive
+C. irreversible
+D. trivial
+E. ambivalent
+Analysis......
+Answer: C Time used: 13.96592s
+[0.64141029, -0.52359086, 1.0, -0.08773011, -0.082672052]
+Right answer: A
+Already finish: 19 / 27
+========== No: 28 ==========
+Question: In protoscientific (for example, in ancient Greece), claims about the physical world were often accepted as true if they were reasonable; experimental verification, if thought necessary at all, was _____.
+Options:
+A. utilitarian
+B. perfunctory
+C. egregious
+D. empirical
+E. inductive
+Analysis......
+Answer: B Time used: 15.638645s
+[-1.3765808, 1.0, 0.23722452, 0.20247185, 0.81159794]
+Right answer: B
+Already finish: 20 / 28
+========== No: 29 ==========
+Question: While early biographies of Florence Nightingale tended to be quite _____, Lytton Strachey's irreverent 1918 essay about her ushered in a new era, making it acceptable, even fashionable, to criticize her.
+Options:
+A. unsympathetic
+B. sycophantic
+C. unsentimental
+D. censorious
+E. pedantic
+Analysis......
+Answer: B Time used: 14.849264s
+[-0.20342684, 1.0, 0.41875154, 0.50801998, 0.23389971]
+Right answer: B
+Already finish: 21 / 29
+========== No: 30 ==========
+Question: The modest but functional new wing finally gives the museum the _____ to serve its visitors properly, including multiple entrances to eliminate the lines that used to snake around the building.
+Options:
+A. visibility
+B. wherewithal
+C. reputation
+D. solemnity
+E. panache
+Analysis......
+Answer: B Time used: 15.977577s
+[-0.2632308, 1.0, 0.15771906, 0.59283453, 0.10752966]
+Right answer: B
+Already finish: 22 / 30
+========== No: 31 ==========
+Question: Politicians who invoke the founders of the United States in support of their views seem to imply that the founders consistently concurred in their own views when in reality they were a highly _____ group of thinkers.
+Options:
+A. erudite
+B. innovative
+C. predictable
+D. contentious
+E. methodical
+Analysis......
+Answer: D Time used: 15.881023s
+[-0.244629, 0.12150972, 0.61064196, 1.0, 0.64982373]
+Right answer: D
+Already finish: 23 / 31
+========== No: 32 ==========
+Question: Apparently, advanced tortoises evolved multiple times: the high-domed shells and columnar, elephantine feet of current forms are specializations for terrestrial life that evolved _____ on each continent.
+Options:
+A. independently
+B. interchangeably
+C. paradoxically
+D. simultaneously
+E. symmetrically
+Analysis......
+Answer: A Time used: 17.00359s
+[1.0, -0.87884134, 0.69521141, -0.1378299, 0.35060081]
+Right answer: A
+Already finish: 24 / 32
+========== No: 33 ==========
+Question: What once seemed a quixotic vision-the "Subway to the Sea," connecting Union Station in downtown Los Angeles to the Pacific Ocean in Santa Monica-no longer seems quite so _____.
+Options:
+A. impracticable
+B. prescient
+C. banal
+D. viable
+E. beneficial
+Analysis......
+Answer: A Time used: 17.00994s
+[1.0, -0.96409798, -0.96515322, -0.66744804, 0.18442307]
+Right answer: A
+Already finish: 25 / 33
+========== No: 34 ==========
+Question: There is _____ in the director's most recent film that keeps the melodramatic possibilities latent in its script safely at bay.
+Options:
+A. a mawkishness
+B. a predictability
+C. an austerity
+D. an ostentatiousness
+E. an emotiveness
+Analysis......
+Answer: C Time used: 17.341996s
+[-0.21689871, -0.36093974, 1.0, 0.82524097, 0.87432402]
+Right answer: C
+Already finish: 26 / 34
+========== No: 35 ==========
+Question: Unlike some mammals-cows and sheep, for instance-that are notably _____, lions have a wide range of facial expressions.
+Options:
+A. tractable
+B. impassive
+C. solitary
+D. social
+E. sluggish
+Analysis......
+Answer: B Time used: 17.010672s
+[-0.48667604, 1.0, 0.29178035, -0.062306657, 0.2383066]
+Right answer: B
+Already finish: 27 / 35
+========== No: 36 ==========
+Question: Though humanitarian emergencies are frequent features of television news, such exposure seldom _____ the public, which rather seems resigned to a sense of impotency.
+Options:
+A. paralyzes
+B. demoralizes
+C. assuages
+D. galvanizes
+E. exasperates
+Analysis......
+Answer: D Time used: 13.77094s
+[-0.44315192, 0.097188339, 0.72404212, 1.0, 0.61466235]
+Right answer: D
+Already finish: 28 / 36
+========== No: 37 ==========
+Question: In protoscientific (for example, in ancient Greece), claims about the physical world were often accepted as true if they were reasonable; experimental verification, if thought necessary at all, was _____.
+Options:
+A. utilitarian
+B. perfunctory
+C. egregious
+D. empirical
+E. inductive
+Analysis......
+Answer: B Time used: 15.712287s
+[-1.3765808, 1.0, 0.23722452, 0.20247185, 0.81159794]
+Right answer: B
+Already finish: 29 / 37
+========== No: 38 ==========
+Question: The theory that the 1908 Tunguska event was the explosion of a cosmic body in the sky over Siberia is _____: no one has yet found fragments of the object or any impact craters in the affected region.
+Options:
+A. long-standing
+B. indisputable
+C. plausible
+D. uncontested
+E. unproven
+Analysis......
+Answer: B Time used: 14.714049s
+[-0.24381211, 1.0, 0.87827587, 0.82227796, 0.68401587]
+Right answer: E
+Already finish: 29 / 38
+========== No: 39 ==========
+Question: Motivation is the hardest of all managerial tasks, and it is _____ to expect a single memo, no matter how well crafted, to have much effect on the staff's attitude.
+Options:
+A. ingenious
+B. reasonable
+C. fanciful
+D. scrupulous
+E. radical
+Analysis......
+Answer: D Time used: 15.186837s
+[-0.41071364, 0.45232219, 0.59383798, 1.0, 0.94223112]
+Right answer: C
+Already finish: 29 / 39
+========== No: 40 ==========
+Question: Many readers today consider the moral sentiments expressed in the ancient writers' work to be quite vapid, and in the seventeenth century they were similarly regarded as _____.
+Options:
+A. jejune
+B. didactic
+C. dogmatic
+D. tendentious
+E. arcane
+Analysis......
+Answer: A Time used: 18.047944s
+[1.0, -1.0240608, 0.62292922, -0.20915028, 0.74879873]
+Right answer: A
+Already finish: 30 / 40
+========== No: 41 ==========
+Question: Though the volume of radioactive waste produced by nuclear power plants is _____, the problem of how to dispose of that waste is not: rather, it is of major importance.
+Options:
+A. unmanageable
+B. troubling
+C. significant
+D. small
+E. deceptive
+Analysis......
+Answer: D Time used: 14.685394s
+[-1.5060389, 0.16013074, 0.86762232, 1.0, -0.737598]
+Right answer: D
+Already finish: 31 / 41
+========== No: 42 ==========
+Question: For the urban researcher, the long lives of ancient cities can provide ample chronological data, making up for the paucity stemming from relative _____ of most present-day cities.
+Options:
+A. complexity
+B. formlessness
+C. transparency
+D. diversity
+E. youthfulness
+Analysis......
+Answer: E Time used: 14.324672s
+[-1.6818672, -0.92544138, -0.73335946, -0.39805001, 1.0]
+Right answer: E
+Already finish: 32 / 42
+========== No: 43 ==========
+Question: Few studies have been published on ground-squirrel dispersal, and most of them have involved very small sample sizes, thus most statement regarding ground-squirrel dispersal must be considered _____.
+Options:
+A. invaluable
+B. unexceptional
+C. inveterate
+D. routine
+E. conjectural
+Analysis......
+Answer: D Time used: 15.686496s
+[0.45690471, 0.79053187, 0.57908458, 1.0, 0.68193895]
+Right answer: E
+Already finish: 32 / 43
+========== No: 44 ==========
+Question: To criticize a disaster film for being _____ is a bit silly, since people do not go to disaster movies to see an honest portrayed of reality.
+Options:
+A. expensive
+B. harrowing
+C. derivative
+D. convoluted
+E. implausible
+Analysis......
+Answer: D Time used: 14.265823s
+[-0.49587855, 0.84243459, 0.83473295, 1.0, 0.81745589]
+Right answer: E
+Already finish: 32 / 44
+========== No: 45 ==========
+Question: In contrast to such sparsely populated terrestrial habitats as desert and tundra, the oceans _____ with a seemingly endless array of creatures.
+Options:
+A. teem
+B. flow
+C. evolve
+D. roil
+E. ebb
+Analysis......
+Answer: A Time used: 15.249552s
+[1.0, -1.9992673, -0.89677387, -0.24936607, -1.1975313]
+Right answer: A
+Already finish: 33 / 45
+========== No: 46 ==========
+Question: Barring the discovery of new letters, hidden diaries, or the like, fresh information about eminent people is hard to find because their lives have been so intensely _____.
+Options:
+A. ridiculed
+B. scrutinized
+C. admired
+D. embellished
+E. underrated
+Analysis......
+Answer: B Time used: 14.272714s
+[-0.73686528, 1.0, -0.34513271, 0.24206001, 0.30680296]
+Right answer: B
+Already finish: 34 / 46
+========== No: 47 ==========
+Question: Scientists have argued not only that the chains of atoms called ladder compounds have _____ theoretical interest but also that studies of such systems can lead to important practical applications.
+Options:
+A. limited
+B. dubious
+C. superfluous
+D. unidimensional
+E. intrinsic
+Analysis......
+Answer: E Time used: 14.430565s
+[-1.057717, -0.062225398, -0.89933932, -0.52178884, 1.0]
+Right answer: E
+Already finish: 35 / 47
+========== No: 48 ==========
+Question: Some novelists immodestly idealized and exaggerated the significance of their work, but others, _____ to exalt the role of the writer, question a transcendent view of the art.
+Options:
+A. averring
+B. declining
+C. seeking
+D. feigning
+E. avowing
+Analysis......
+Answer: B Time used: 16.666877s
+[-0.63120073, 1.0, -0.0083111562, 0.23944339, -0.66804051]
+Right answer: B
+Already finish: 36 / 48
+========== No: 49 ==========
+Question: Though many avant-garde writers _____ traditional distinctions among literary categories, combining elements of biography and fiction, prose and poetry, this fusion of forms has been slow to catch on with publishers.
+Options:
+A. flout
+B. presuppose
+C. exploit
+D. imitate
+E. illuminate
+Analysis......
+Answer: A Time used: 17.087906s
+[1.0, -0.39745274, 0.60506332, 0.61220109, 0.11298408]
+Right answer: A
+Already finish: 37 / 49
+========== No: 50 ==========
+Question: By pointing out the self-serving nature of the governor's motives for supporting the new health care policy, the columnist implied that the governor's idealistic-sounding explanation of her position on the issue was almost certainty _____.
+Options:
+A. impractical
+B. derivative
+C. simplistic
+D. disingenuous
+E. ineffectual
+Analysis......
+Answer: D Time used: 14.992815s
+[-0.41547605, 0.5771209, 0.44177264, 1.0, 0.19408885]
+Right answer: D
+Already finish: 38 / 50
+========== No: 51 ==========
+Question: In the solar system, collisions involving cosmic object are among the most _____ processes shaping surfaces: images of many solar objects show a proliferation of impact craters formed throughout the past 4.5 billion years.
+Options:
+A. cataclysmic
+B. pervasive
+C. misleading
+D. uncontrollable
+E. random
+Analysis......
+Answer: C Time used: 14.60987s
+[1.4973019, 1.7532279, 1.0, 2.2954991, 1.7844018]
+Right answer: B
+Already finish: 38 / 51
+========== No: 52 ==========
+Question: If the study proves that bears are still endemic to the area, the proposal to introduce additional bears of the same species will probably face less opposition, since the plan would then involve _____ a historic population, not trying to build population from scratch.
+Options:
+A. reclassifying
+B. augmenting
+C. forestalling
+D. publicizing
+E. winnowing
+Analysis......
+Answer: B Time used: 14.761486s
+[-0.51576042, 1.0, 0.2479279, 0.12286449, 0.042488854]
+Right answer: B
+Already finish: 39 / 52
+========== No: 53 ==========
+Question: Many readers today consider the moral sentiments expressed in the ancient writers' work to be quite vapid, and in the seventeenth century they were similarly regarded as _____.
+Options:
+A. jejune
+B. didactic
+C. dogmatic
+D. tendentious
+E. arcane
+Analysis......
+Answer: A Time used: 14.128588s
+[1.0, -1.0240608, 0.62292922, -0.20915028, 0.74879873]
+Right answer: A
+Already finish: 40 / 53
+========== No: 54 ==========
+Question: A new television documentary focuses on of the prime minister's defining contradiction, portraying her as a woman who cultivated an image of _____, but who liked to live grandly.
+Options:
+A. irascibility
+B. abstemiousness
+C. contentiousness
+D. insouciance
+E. surreptitiousness
+Analysis......
+Answer: C Time used: 13.396076s
+[0.63810587, 0.90873551, 1.0, 0.67875272, 0.464551]
+Right answer: B
+Already finish: 40 / 54
+========== No: 55 ==========
+Question: The stories in Yiyun Li's recent collection are distinctive particularly for the strong contrast between their emotional intensity and their consistently _____ tone.
+Options:
+A. affable
+B. ebullient
+C. measured
+D. irascible
+E. overwrought
+Analysis......
+Answer: C Time used: 13.592039s
+[-0.65573424, -0.18403095, 1.0, 0.067830667, 0.10944012]
+Right answer: C
+Already finish: 41 / 55
+========== No: 56 ==========
+Question: The paleontologist examined the problem afresh, believing that the accepted classification _____ the essential continuity of the specimens by making specious distinctions among them.
+Options:
+A. disproved
+B. belied
+C. conflated
+D. divulged
+E. relaxed
+Analysis......
+Answer: C Time used: 13.774201s
+[-0.49229154, 0.62561327, 1.0, 0.73400319, 0.22514108]
+Right answer: B
+Already finish: 41 / 56
+========== No: 57 ==========
+Question: The era's examples of _____ that are cited by the author can be balanced?in part?by certain examples of dissent?during the?same?period.
+Options:
+A. diversity
+B. authoritarianism
+C. forbearance
+D. volatility
+E. lucidity
+Analysis......
+Answer: B Time used: 13.846485s
+[-1.1237297, 1.0, -0.46251789, -0.32025135, -0.60116094]
+Right answer: B
+Already finish: 42 / 57
+========== No: 58 ==========
+Question: It seems foolish to refuse the offer of an expedient that is both so _____ success and so difficult to create the absent.
+Options:
+A. reminiscent of
+B. lacking in
+C. distinct from
+D. indispensable to
+E. inimical to
+Analysis......
+Answer: D Time used: 13.214634s
+[-0.49380958, -0.17784075, 0.093233079, 1.0, 0.9736588]
+Right answer: D
+Already finish: 43 / 58
+========== No: 59 ==========
+Question: With the numerous opponents of the controversial new taxation measure in such a fury, anyone who publicly advocated the measure did not fail to meet with _____ usage.
+Options:
+A. politic
+B. severe
+C. sober
+D. respectful
+E. dejected
+Analysis......
+Answer: B Time used: 13.734587s
+[-0.49585241, 1.0, 0.18248224, -0.57785898, -0.028883651]
+Right answer: B
+Already finish: 44 / 59
+========== No: 60 ==========
+Question: She constantly _____ herself for not living up to her own ideas-for not working hard enough or not having motives that were pure enough.
+Options:
+A. exalted
+B. coddled
+C. excoriated
+D. mollified
+E. deluded
+Analysis......
+Answer: C Time used: 13.881677s
+[-0.28239292, 0.19136883, 1.0, 0.4042213, 0.57195312]
+Right answer: C
+Already finish: 45 / 60
+========== No: 61 ==========
+Question: In his youth, the naturalist and artist John James Audubon was given to _____ glamorous tales about himself: he falsely claimed to have studied under a renowned French painter and hinted that he was the heir apparent to the French throne.
+Options:
+A. disavowing
+B. understanding
+C. constraining
+D. obfuscating
+E. concocting
+Analysis......
+Answer: E Time used: 14.648972s
+[-0.27416173, 0.076571405, 0.55061829, 0.48011389, 1.0]
+Right answer: E
+Already finish: 46 / 61
+========== No: 62 ==========
+Question: Holston characterized a colonial situation as an aggregation of activities and a conjunction of outcomes that, though _____ and at times coordinated, were usually diffuse, disorganized, and even contradictory.
+Options:
+A. dubious
+B. chaotic
+C. harmonious
+D. linked
+E. imputed
+Analysis......
+Answer: D Time used: 14.787189s
+[-1.8578974, -0.4419302, -0.62259597, 1.0, -1.7103698]
+Right answer: D
+Already finish: 47 / 62
+========== No: 63 ==========
+Question: The space travels described in science fiction stories always used to be epic adventures, in comparison to which current journals in space seem quite _____.
+Options:
+A. mundane
+B. exciting
+C. dramatic
+D. risky
+E. heroic
+Analysis......
+Answer: A Time used: 14.51784s
+[1.0, -0.40003714, 0.51418126, 0.18572937, -0.13946962]
+Right answer: A
+Already finish: 48 / 63
+========== No: 64 ==========
+Question: To criticize a disaster film for being _____ is a bit silly, since people do not go to disaster movies to see an honest portrayed of reality.
+Options:
+A. expensive
+B. harrowing
+C. derivative
+D. convoluted
+E. implausible
+Analysis......
+Answer: D Time used: 14.303981s
+[-0.49587855, 0.84243459, 0.83473295, 1.0, 0.81745589]
+Right answer: E
+Already finish: 48 / 64
+========== No: 65 ==========
+Question: Medieval cathedrals still stand as marvels of architecture, but as far as modern science is concerned, medieval physics and chemistry are simply irrelevant, at best a dead end, at worst the very _____ of what science is supposed to be.
+Options:
+A. exemplar
+B. glorification
+C. reflection
+D. reflection
+E. antithesis
+Analysis......
+Answer: E Time used: 13.047916s
+[-3.4005752, -2.0045426, 0.014196249, 0.014196249, 1.0]
+Right answer: E
+Already finish: 49 / 65
+========== No: 66 ==========
+Question: For the urban researcher, the long lives of ancient cities can provide ample chronological data, making up for the paucity stemming from relative _____ of most present-day cities.
+Options:
+A. complexity
+B. formlessness
+C. transparency
+D. diversity
+E. youthfulness
+Analysis......
+Answer: E Time used: 14.105863s
+[-1.6818672, -0.92544138, -0.73335946, -0.39805001, 1.0]
+Right answer: E
+Already finish: 50 / 66
+========== No: 67 ==========
+Question: Investors are grateful that the attorney general has stepped in to pursue inquiries into misfeasance in the financial markets, given that the regulators officially charged with policing the industry have been _____.
+Options:
+A. diffident
+B. meticulous
+C. straightforward
+D. implacable
+E. implacable
+Analysis......
+Answer: A Time used: 14.142622s
+[1.0, -0.46449021, 0.45121649, -0.29211104, -0.29211104]
+Right answer: A
+Already finish: 51 / 67
+========== No: 68 ==========
+Question: Consolidating memory is not instantaneous or even _____: every memory must be encoded and moved from short-term to long-term storage, and some of these memories are, for whatever reason, more vividly imprinted than others.
+Options:
+A. salutary
+B. deliberate
+C. sequential
+D. momentary
+E. inevitable
+Analysis......
+Answer: B Time used: 13.496037s
+[-0.70122153, 1.0, 0.87666655, 0.27252173, 0.9298898]
+Right answer: E
+Already finish: 51 / 68
+========== No: 69 ==========
+Question: Instead of demonstrating the _____ of archaeological applications of electronic remote sensing, the pioneering study became, to some skeptics, an illustration of the imprudence of interpreting sites based on virtual archaeology.
+Options:
+A. ubiquity
+B. limitation
+C. promise
+D. redundancy
+E. complexity
+Analysis......
+Answer: C Time used: 13.69552s
+[-3.5979497, 0.47229654, 1.0, -1.3136882, -3.5422349]
+Right answer: C
+Already finish: 52 / 69
+========== No: 70 ==========
+Question: While the writer was best known for her much-ballyhooed _____, her impact reached far beyond memorable quips.
+Options:
+A. pensiveness
+B. drollness
+C. stoicism
+D. fastidiousness
+E. congeniality
+Analysis......
+Answer: B Time used: 14.111788s
+[-0.75644064, 1.0, 0.44611847, -0.13737388, -0.050844565]
+Right answer: B
+Already finish: 53 / 70
+========== No: 71 ==========
+Question: The governor might conceivably find a genuine resolution to the budgetary dilemma, but she may be tempted to engage in a deception: a _____ exercise in fiscal prudence.
+Options:
+A. rigorous
+B. sparking
+C. specious
+D. blatant
+E. convincing
+Analysis......
+Answer: B Time used: 12.620672s
+[-0.64688659, 1.0, 0.72454548, 0.41844496, 0.81705838]
+Right answer: C
+Already finish: 53 / 71
+========== No: 72 ==========
+Question: Without seeming unworldly, William James appeared wholly removed from the _____ of society, the conventionality of academy.
+Options:
+A. ethos
+B. ethos
+C. romance
+D. paradoxes
+E. commonplaces
+Analysis......
+Answer: E Time used: 12.397809s
+[-0.94969994, -0.94969994, 0.16884567, -0.13303481, 1.0]
+Right answer: E
+Already finish: 54 / 72
+========== No: 73 ==========
+Question: The idea of a "language instinct" may seem _____ to those who think of language as the zenith of the human intellect and of instincts as brute impulses.
+Options:
+A. jarring
+B. plausible
+C. gratifying
+D. inevitable
+E. conciliatory
+Analysis......
+Answer: A Time used: 12.800719s
+[1.0, -1.988999, -2.2383041, -1.2885144, 0.39425269]
+Right answer: A
+Already finish: 55 / 73
+========== No: 74 ==========
+Question: The artist is known for making photographs that deal with politically charged subject matter, yet because her art is so evocative and open-ended, it would be wrong to characterize it as _____.
+Options:
+A. polemical
+B. edifying
+C. unobservant
+D. innovative
+E. ambiguous
+Analysis......
+Answer: A Time used: 12.622684s
+[1.0, -0.59646726, 0.078754894, -0.67312002, 0.90599585]
+Right answer: A
+Already finish: 56 / 74
+========== No: 75 ==========
+Question: The medical professor's thesis-hardly new, but rarely _____ by a faculty members of his distinction-is that patients are more than the sum of their symptoms and systems.
+Options:
+A. discounted
+B. ignored
+C. ignored
+D. underestimated
+E. espoused
+Analysis......
+Answer: E Time used: 12.677122s
+[-0.83383143, 0.3779372, 0.3779372, 0.27645898, 1.0]
+Right answer: E
+Already finish: 57 / 75
+========== No: 76 ==========
+Question: Even if he wants to serve again-and given his obvious love for the job, the assumption among insiders is that he is more likely to stay than go-there is at least _____ his serving another term.
+Options:
+A. impediment to
+B. incentive for
+C. precedent for
+D. benefit in
+E. rationale for
+Analysis......
+Answer: A Time used: 12.663113s
+[1.0, -0.80168265, -0.72541696, -0.48676521, -0.5042125]
+Right answer: A
+Already finish: 58 / 76
+========== No: 77 ==========
+Question: Many creative photographers were delighted to find in instant photography a mode that encouraged them to stop viewing photography as _____ and start viewing it as something they could handle with spontaneity, even derision.
+Options:
+A. sacrosanct
+B. ephemeral
+C. malleable
+D. egalitarian
+E. autonomous
+Analysis......
+Answer: A Time used: 13.047887s
+[1.0, -0.28558472, 0.14330602, 0.3593227, 0.26987717]
+Right answer: A
+Already finish: 59 / 77
+========== No: 78 ==========
+Question: Consolidating memory is not instantaneous or even _____: every memory must be encoded and moved from short-term to long-term storage, and some of these memories are, for whatever reason, more vividly imprinted than others.
+Options:
+A. salutary
+B. deliberate
+C. sequential
+D. momentary
+E. inevitable
+Analysis......
+Answer: B Time used: 13.323277s
+[-0.70122153, 1.0, 0.87666655, 0.27252173, 0.9298898]
+Right answer: E
+Already finish: 59 / 78
+========== No: 79 ==========
+Question: Some ethicists worry that a deeper understanding of the brain may be tantamount to _____; if we discover that free will is an illusion of neural circuitry, how will we hold people responsible for their actions?
+Options:
+A. vindication
+B. proscription
+C. ministration
+D. valediction
+E. exculpation
+Analysis......
+Answer: E Time used: 16.833618s
+[-2.1451697, -0.078124553, -0.026668634, 0.53373671, 1.0]
+Right answer: E
+Already finish: 60 / 79
+========== No: 80 ==========
+Question: Instead of demonstrating the _____ of archaeological applications of electronic remote sensing, the pioneering study became, to some skeptics, an illustration of the imprudence of interpreting sites based on virtual archaeology.
+Options:
+A. ubiquity
+B. limitation
+C. promise
+D. redundancy
+E. complexity
+Analysis......
+Answer: C Time used: 15.496853s
+[-3.5979497, 0.47229654, 1.0, -1.3136882, -3.5422349]
+Right answer: C
+Already finish: 61 / 80
+========== No: 81 ==========
+Question: Of all her works, this play is the most dependent on the dramatic conventions of the author's day: it was both the least _____ of her plays and the most commercially successful.
+Options:
+A. experimental
+B. popular
+C. formulaic
+D. lucrative
+E. contemporary
+Analysis......
+Answer: A Time used: 14.953s
+[1.0, -0.47698444, 0.19112644, 0.11826629, 0.1516588]
+Right answer: A
+Already finish: 62 / 81
+========== No: 82 ==========
+Question: Carmen's affection for her sister, though not _____, was plainly too great to permit a painless departure.
+Options:
+A. unsteady
+B. ambivalent
+C. careless
+D. unbounded
+E. noticeable
+Analysis......
+Answer: D Time used: 14.016306s
+[0.84631217, 0.81981027, 0.74011338, 1.0, 0.8565622]
+Right answer: D
+Already finish: 63 / 82
+========== No: 83 ==========
+Question: The science of astronomy was begun by amateurs and today remains dependent on their contributions, which are incisive by virtue of being _____ by the a priori assumptions that often vitiate the work of professional research scientists.
+Options:
+A. characterized
+B. unencumbered
+C. supported
+D. contradicted
+E. inspired
+Analysis......
+Answer: B Time used: 13.284686s
+[-0.39118993, 1.0, 0.22146973, 0.51020747, 0.13133304]
+Right answer: B
+Already finish: 64 / 83
+========== No: 84 ==========
+Question: Without seeming unworldly, William James appeared wholly removed from the _____ of society, the conventionality of academy.
+Options:
+A. ethos
+B. idealism
+C. romance
+D. paradoxes
+E. commonplaces
+Analysis......
+Answer: E Time used: 13.312006s
+[-0.94969994, 0.52651227, 0.16884567, -0.13303481, 1.0]
+Right answer: E
+Already finish: 65 / 84
+========== No: 85 ==========
+Question: The maps in this volume are meant not as guides but as _____: they are designed to make the reader think anew about the city.
+Options:
+A. adornments
+B. references
+C. truisms
+D. provocations
+E. valedictions
+Analysis......
+Answer: D Time used: 13.328565s
+[-0.15461348, 0.66662389, 0.67932528, 1.0, 0.91095275]
+Right answer: D
+Already finish: 66 / 85
+========== No: 86 ==========
+Question: Carmen's affection for her sister, though not _____, was plainly too great to permit a painless departure.
+Options:
+A. unsteady
+B. ambivalent
+C. careless
+D. unbounded
+E. noticeable
+Analysis......
+Answer: D Time used: 13.943572s
+[0.84631217, 0.81981027, 0.74011338, 1.0, 0.8565622]
+Right answer: D
+Already finish: 67 / 86
+========== No: 87 ==========
+Question: Neuroscientists are excited by technological progress that facilitates brain mapping, the most _____ of them comparing their growing abilities to tremendous advances that led to unimaginable success of the Human Genome Project.
+Options:
+A. rigorous
+B. sanguine
+C. sanguine
+D. unorthodox
+E. sophisticated
+Analysis......
+Answer: B Time used: 13.808514s
+Answer: C Time used: 13.808537s
+[-0.56942195, 1.0, 1.0, -0.54300827, -0.36514312]
+Right answer: B
+Already finish: 68 / 87
+========== No: 88 ==========
+Question: It seems foolish to refuse the offer of an expedient that is both so _____ success and so difficult to create the absent.
+Options:
+A. reminiscent of
+B. lacking in
+C. distinct from
+D. indispensable to
+E. inimical to
+Analysis......
+Answer: D Time used: 13.211076s
+[-0.49380958, -0.17784075, 0.093233079, 1.0, 0.9736588]
+Right answer: D
+Already finish: 69 / 88
+========== No: 89 ==========
+Question: The science community's perennial lament over inadequate budgets has come to seem increasing _____, because government support for science and engineering has never been greater.
+Options:
+A. vital
+B. hopeless
+C. poignant
+D. poignant
+E. disingenuous
+Analysis......
+Answer: E Time used: 13.905537s
+[-1.3834654, -0.29793355, -0.60689062, -0.60689062, 1.0]
+Right answer: E
+Already finish: 70 / 89
+========== No: 90 ==========
+Question: In modern times, friendship has become a _____ relationship: a form of connection in terms of which all are understood and against which all are measured.
+Options:
+A. conciliatory
+B. mercenary
+C. paradigmatic
+D. contentious
+E. supplementary
+Analysis......
+Answer: C Time used: 13.528779s
+[-0.90514493, 0.37941939, 1.0, 0.70857, 0.045919791]
+Right answer: C
+Already finish: 71 / 90
+========== No: 91 ==========
+Question: Even those observes who are the most _____ about genetic privacy issues would have to concede that genetic discrimination is rare: there have only been two cases of any notoriety.
+Options:
+A. sanguine
+B. zealous
+C. candid
+D. objective
+E. apathetic
+Analysis......
+Answer: B Time used: 13.487191s
+[-0.73645198, 1.0, -0.17683542, -0.26878077, 0.30982319]
+Right answer: B
+Already finish: 72 / 91
+========== No: 92 ==========
+Question: Many creative photographers were delighted to find in instant photography a mode that encouraged them to stop viewing photography as _____ and start viewing it as something they could handle with spontaneity, even derision.
+Options:
+A. sacrosanct
+B. ephemeral
+C. malleable
+D. malleable
+E. autonomous
+Analysis......
+Answer: A Time used: 13.49461s
+[1.0, -0.28558472, 0.14330602, 0.14330602, 0.26987717]
+Right answer: A
+Already finish: 73 / 92
+========== No: 93 ==========
+Question: In one theory, as people learn things throughout the day, connections between neurons get strengthened, but during sleep then all synapses are weakened, tenuous connections are _____ and only the strongest bonds could remain.
+Options:
+A. reinforced
+B. reproduced
+C. replaced
+D. stimulated
+E. severed
+Analysis......
+Answer: E Time used: 14.028205s
+[-1.3610545, -0.64948624, -0.54141521, -0.86357343, 1.0]
+Right answer: E
+Already finish: 74 / 93
+========== No: 94 ==========
+Question: While the writer was best known for her much-ballyhooed _____, her impact reached far beyond memorable quips.
+Options:
+A. pensiveness
+B. drollness
+C. drollness
+D. fastidiousness
+E. congeniality
+Analysis......
+Answer: B Time used: 15.516399s
+Answer: C Time used: 15.516422s
+[-0.75644064, 1.0, 1.0, -0.13737388, -0.050844565]
+Right answer: B
+Already finish: 75 / 94
+========== No: 95 ==========
+Question: One baffling aspect of the novel is its capacity to generate emotional power from a plot that lacks the most elementary _____: readers must accept not an occasional coincidence, but a continuous stream of them.
+Options:
+A. synergy
+B. continuity
+C. naivety
+D. premise
+E. credibility
+Analysis......
+Answer: E Time used: 14.054965s
+[-0.23502731, -0.033661924, 0.25019613, 0.18756539, 1.0]
+Right answer: E
+Already finish: 76 / 95
+========== No: 96 ==========
+Question: Though humanitarian emergencies are frequent features of television news, such exposure seldom _____ the public, which rather seems resigned to a sense of impotency.
+Options:
+A. Tparalyzes
+B. demoralizes
+C. assuages
+D. galvanizes
+E. exasperates
+Analysis......
+Answer: D Time used: 14.05921s
+[-0.69415277, 0.097188339, 0.72404212, 1.0, 0.61466235]
+Right answer: D
+Already finish: 77 / 96
+========== No: 97 ==========
+Question: Although adolescent maturational and developmental states occur in an orderly sequence, their timing _____ with regard to onset and duration.
+Options:
+A. lasts
+B. varies
+C. falters
+D. accelerates
+E. dwindles
+Analysis......
+Answer: B Time used: 15.447561s
+[-0.93451595, 1.0, -1.9474546, 0.027722366, -1.1093578]
+Right answer: B
+Already finish: 78 / 97
+========== No: 98 ==========
+Question: The prospects of discovering new aspects of the life of a painter as thoroughly studied as Vermeer are not, on the surface,_____.
+Options:
+A. encouraging
+B. daunting
+C. unpromising
+D. superficial
+E. challenging
+Analysis......
+Answer: A Time used: 16.064435s
+Answer: B Time used: 16.064475s
+Answer: C Time used: 16.064486s
+Answer: D Time used: 16.064494s
+Answer: E Time used: 16.064501s
+[1.0, 1.0, 1.0, 1.0, 1.0]
+Right answer: A
+Already finish: 79 / 98
+========== No: 99 ==========
+Question: The Chinese, who began systematic astronomical and weather observations shortly after the ancient Egyptians, were assiduous record-keepers, and because of this, can claim humanity's longest continuous _____ of natural events.
+Options:
+A. defiance
+B. documentation
+C. maintenance
+D. theory
+E. domination
+Analysis......
+Answer: A Time used: 18.934284s
+[1.0, 1.6787059, 1.3330188, 1.4536363, 1.2370462]
+Right answer: B
+Already finish: 79 / 99
+========== No: 100 ==========
+Question: The current demand for quality in the schools seems to ask not for the development of informed and active citizens, but for disciplined and productive workers with abilities that contribute to civic life only _____, if at all.
+Options:
+A. indirectly
+B. politically
+C. intellectually
+D. sensibly
+E. sequentially
+Analysis......
+Answer: A Time used: 15.082791s
+[1.0, -0.52236289, -0.24673747, 0.1274763, 0.083409637]
+Right answer: A
+Already finish: 80 / 100
+80
+Accuracy: 0.8
