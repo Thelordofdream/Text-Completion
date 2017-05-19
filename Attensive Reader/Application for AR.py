@@ -8,6 +8,7 @@ import tensorflow as tf
 import Word2Vec
 import model2
 from draw import draw
+import matplotlib.pyplot as plt
 
 
 def predict(model, data, q, a, sess):
@@ -17,8 +18,8 @@ def predict(model, data, q, a, sess):
         batch_xs = data[num].reshape((model.batch_size, model.steps, model.inputs))
         batch_q = q[num].reshape((model.batch_size, model.steps, model.inputs))
         batch_a = a[num].reshape((model.batch_size, 4, model.inputs))
-        results.append(sess.run(tf.argmax(model.output, 1), feed_dict={model.x: batch_xs, model.q: batch_q, model.a: batch_a, model.keep_prob_d: 1.0,  model.keep_prob_q: 1.0,  model.keep_prob_a: 1.0}))
-        points.append((sess.run(model.output, feed_dict={model.x: batch_xs, model.q: batch_q, model.a: batch_a, model.keep_prob_d: 1.0,  model.keep_prob_q: 1.0,  model.keep_prob_a: 1.0})))
+        results.append(sess.run(tf.argmax(model.output, 1), feed_dict={model.x: batch_xs, model.q: batch_q, model.a: batch_a, model.keep_prob_d: 0.5,  model.keep_prob_q: 0.5,  model.keep_prob_a: 0.5}))
+        points.append((sess.run(model.output, feed_dict={model.x: batch_xs, model.q: batch_q, model.a: batch_a, model.keep_prob_d: 0.5,  model.keep_prob_q: 0.5,  model.keep_prob_a: 0.5})))
     return results, points
 
 
@@ -76,9 +77,11 @@ if __name__ == "__main__":
     print "Loading Google Model Finished."
     my_network = model2.Attensive_Reader(name="TC")
     init = tf.global_variables_initializer()
+    total = 0
+    list = []
     with tf.Session() as sess:
         saver = tf.train.Saver()
-        saver.restore(sess, "../test4/model.ckpt")
+        saver.restore(sess, "../info2/model.ckpt")
         print "Loading LSTM Model and opening Tensorflow Finished."
         count = 0
         number = 100
@@ -119,11 +122,18 @@ if __name__ == "__main__":
                 if distance[i] == 1:
                     elapsed = (time.clock() - start)
                     print "Answer: " + options[i] + " Time used: " + str(elapsed) + "s"
+                    total += elapsed
                     if options[i] == right_answer:
                         count += 1
             print distance
             print "Right answer: " + right_answer
             print "Already finish: %d / %d" % (count, No + 1)
+            list.append(count / float(No + 1))
         print count
         print "Accuracy: " + str(count/float(number))
+        print "Average Time: " + str(total / float(number))
         connection.close()
+        x = range(1, 101)
+        plt.figure(1)
+        plt.plot(x, list)
+        plt.show()

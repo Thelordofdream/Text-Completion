@@ -9,14 +9,16 @@ import Word2Vec
 import model1
 from draw import draw
 
+import matplotlib.pyplot as plt
+
 
 def predict(model, data, sess):
     results = []
     points = []
     for batch_xs in data:
         batch_xs = batch_xs.reshape((model.batch_size, model.steps, model.inputs))
-        results.append(sess.run(tf.argmax(model.output, 1), feed_dict={model.x: batch_xs, model.keep_prob: 1.0}))
-        points.append((sess.run(model.output, feed_dict={model.x: batch_xs, model.keep_prob: 1.0})))
+        results.append(sess.run(tf.argmax(model.output, 1), feed_dict={model.x: batch_xs, model.keep_prob: 0.5}))
+        points.append((sess.run(model.output, feed_dict={model.x: batch_xs, model.keep_prob: 0.5})))
     return results, points
 
 
@@ -45,9 +47,11 @@ if __name__ == "__main__":
     print "Loading Google Model Finished."
     my_network = model1.Bd_LSTM_layer(name="TC")
     init = tf.global_variables_initializer()
+    total = 0
+    list = []
     with tf.Session() as sess:
         saver = tf.train.Saver()
-        saver.restore(sess, "../test3/model.ckpt")
+        saver.restore(sess, "../info1/model.ckpt")
         print "Loading LSTM Model and opening Tensorflow Finished."
         count = 0
         number = 100
@@ -88,11 +92,18 @@ if __name__ == "__main__":
                 if distance[i] == 1:
                     elapsed = (time.clock() - start)
                     print "Answer: " + options[i] + " Time used: " + str(elapsed) + "s"
+                    total += elapsed
                     if options[i] == right_answer:
                         count += 1
             print distance
             print "Right answer: " + right_answer
             print "Already finish: %d / %d" % (count, No + 1)
+            list.append(count/float(No + 1))
         print count
         print "Accuracy: " + str(count/float(number))
+        print "Average Time: " + str(total/float(number))
         connection.close()
+        x = range(1, 101)
+        plt.figure(1)
+        plt.plot(x, list)
+        plt.show()
