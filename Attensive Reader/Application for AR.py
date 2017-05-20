@@ -18,8 +18,8 @@ def predict(model, data, q, a, sess):
         batch_xs = data[num].reshape((model.batch_size, model.steps, model.inputs))
         batch_q = q[num].reshape((model.batch_size, model.steps, model.inputs))
         batch_a = a[num].reshape((model.batch_size, 4, model.inputs))
-        results.append(sess.run(tf.argmax(model.output, 1), feed_dict={model.x: batch_xs, model.q: batch_q, model.a: batch_a, model.keep_prob_d: 0.5,  model.keep_prob_q: 0.5,  model.keep_prob_a: 0.5}))
-        points.append((sess.run(model.output, feed_dict={model.x: batch_xs, model.q: batch_q, model.a: batch_a, model.keep_prob_d: 0.5,  model.keep_prob_q: 0.5,  model.keep_prob_a: 0.5})))
+        results.append(sess.run(tf.argmax(model.output, 1), feed_dict={model.x: batch_xs, model.q: batch_q, model.a: batch_a, model.keep_prob_d: 1.0,  model.keep_prob_q: 1.0,  model.keep_prob_a: 1.0}))
+        points.append((sess.run(model.output, feed_dict={model.x: batch_xs, model.q: batch_q, model.a: batch_a, model.keep_prob_d: 1.0,  model.keep_prob_q: 1.0,  model.keep_prob_a: 1.0})))
     return results, points
 
 
