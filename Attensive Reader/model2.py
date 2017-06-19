@@ -97,13 +97,16 @@ class Attensive_Reader(nerual_network):
                 m.append(tf.nn.tanh(tf.matmul(hq1_drop[i], Wym) + mu))
             m = tf.reshape(m, [-1, 2 * self.hidden_q])
             Wms = tf.Variable(tf.random_normal([2 * self.hidden_q, 1]), name='Wms')
-            s = tf.nn.softmax(tf.exp(tf.matmul(m, Wms)))
-            s = tf.split(s, self.steps, 0)
+            self.s = tf.placeholder("float", [None, self.steps], name="s")
+            s0 = tf.matmul(m, Wms)
+            s0 = tf.split(s0, self.steps, 0)
             hq1_drop = tf.transpose(hq1_drop, [1, 0, 2])
-            s = tf.transpose(s, [1, 0, 2])
+            s0 = tf.reshape(s0, [100, 28])
+            s0 = tf.nn.softmax(s0)
+            self.s = tf.reshape(s0, [100, 28, 1])
             r = []
             for i in range(self.batch_size):
-                r.append(tf.transpose(tf.matmul(tf.transpose(hq1_drop[i]), s[i])))
+                r.append(tf.transpose(tf.matmul(tf.transpose(hq1_drop[i]), self.s[i])))
             r = tf.reshape(r, [-1, 2 * self.hidden_q])
             r_drop = tf.nn.dropout(r, self.keep_prob_q)
 

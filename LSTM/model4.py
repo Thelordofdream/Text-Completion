@@ -4,7 +4,7 @@ import numpy as np
 
 
 class nerual_network(object):
-    def __init__(self, steps=49, inputs=300, hidden=300, batch_size=1, classes=2, learning_rate=0.001):
+    def __init__(self, steps=49, inputs=300, hidden=300, batch_size=256, classes=2, learning_rate=0.001):
         self.steps = steps
         self.inputs = inputs
         self.hidden = hidden
@@ -13,9 +13,9 @@ class nerual_network(object):
         self.learning_rate = learning_rate
 
 
-class RNN_layer(nerual_network):
+class LSTM_layer(nerual_network):
     def __init__(self, name="N1"):
-        super(RNN_layer, self).__init__()
+        super(LSTM_layer, self).__init__()
         self.name = name
         self.output = None
         self.cross_entropy = None
@@ -27,13 +27,13 @@ class RNN_layer(nerual_network):
 
         with tf.variable_scope("RNN_layer"):
             _seq_len = tf.fill([self.batch_size], tf.constant(self.steps, dtype=tf.float32))
-            lstm_cell = rnn.BasicLSTMCell(self.hidden, forget_bias=1.0, state_is_tuple=True)
+            lstm_cell = rnn.BasicLSTMCell(self.inputs, forget_bias=1.0, state_is_tuple=True)
             outputs, states = rnn.static_rnn(lstm_cell, input, initial_state=lstm_cell.zero_state(self.batch_size, tf.float32))
 
         with tf.variable_scope("dense_layer"):
             outputs = tf.transpose(outputs, [1, 0, 2])
-            time_seq = tf.reshape(outputs, [-1, self.steps * 2 * self.inputs])
-            hidden1_w = tf.Variable(tf.random_normal([self.steps * 2 * self.hidden, self.hidden]), name='h1_w')
+            time_seq = tf.reshape(outputs, [-1, self.steps * self.inputs])
+            hidden1_w = tf.Variable(tf.random_normal([self.steps *  self.inputs, self.hidden]), name='h1_w')
             hidden1_b = tf.Variable(tf.random_normal([self.hidden]), name='h1_b'),
             h1 = tf.matmul(time_seq, hidden1_w) + hidden1_b
 

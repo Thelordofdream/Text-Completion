@@ -1,7 +1,7 @@
 # coding=utf-8
 import tensorflow as tf
 
-import model3
+import model4
 
 
 def train(model, data, sess, training_iters, display_step):
@@ -34,7 +34,7 @@ def test(model, data, sess):
 
 def save(sess):
     saver = tf.train.Saver()
-    save_path = saver.save(sess, "./test/model.ckpt")
+    save_path = saver.save(sess, "../test1/model.ckpt")
     print("Model saved in file: %s" % save_path)
 
 
@@ -42,8 +42,8 @@ if __name__ == "__main__":
     training_iters = 3200
     display_step = 10
 
-    data = model1.data(path="./data for input0/")
-    my_network = model1.Bd_LSTM_layer(name="TC")
+    data = model4.data(path="../data for input0/")
+    my_network = model4.LSTM_layer(name="TC")
 
     init = tf.global_variables_initializer()
     with tf.Session() as sess:

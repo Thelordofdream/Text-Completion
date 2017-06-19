@@ -6,7 +6,7 @@ import pymysql
 import tensorflow as tf
 
 import Word2Vec
-import model3
+import model4
 from draw import draw
 
 import matplotlib.pyplot as plt
