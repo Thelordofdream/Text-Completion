@@ -101,9 +101,9 @@ class Attensive_Reader(nerual_network):
             s0 = tf.matmul(m, Wms)
             s0 = tf.split(s0, self.steps, 0)
             hq1_drop = tf.transpose(hq1_drop, [1, 0, 2])
-            s0 = tf.reshape(s0, [self.batch_size, 28])
+            s0 = tf.reshape(s0, [self.batch_size, self.steps])
             s0 = tf.nn.softmax(s0)
-            self.s = tf.reshape(s0, [self.batch_size, 28, 1])
+            self.s = tf.reshape(s0, [self.batch_size, self.steps, 1])
             r = []
             for i in range(self.batch_size):
                 r.append(tf.transpose(tf.matmul(tf.transpose(hq1_drop[i]), self.s[i])))
